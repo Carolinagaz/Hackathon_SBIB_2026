@@ -1,0 +1,1080 @@
+{
+  "clinicas": [
+    {
+      "clinic_id": "CLI-001",
+      "nome": "Instituto Santa Luzia",
+      "cidade": "Franca",
+      "porte": "médio",
+      "cadeiras": 3
+    },
+    {
+      "clinic_id": "CLI-002",
+      "nome": "Clínica Vida",
+      "cidade": "Bauru",
+      "porte": "grande",
+      "cadeiras": 8
+    },
+    {
+      "clinic_id": "CLI-003",
+      "nome": "Odonto Horizonte",
+      "cidade": "Sertãozinho",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-004",
+      "nome": "Clínica Ipê",
+      "cidade": "São Carlos",
+      "porte": "grande",
+      "cadeiras": 6
+    },
+    {
+      "clinic_id": "CLI-005",
+      "nome": "Odonto Boa Vista",
+      "cidade": "São Carlos",
+      "porte": "médio",
+      "cadeiras": 5
+    },
+    {
+      "clinic_id": "CLI-006",
+      "nome": "Clínica Central",
+      "cidade": "Araraquara",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-007",
+      "nome": "Clínica Ipê",
+      "cidade": "Ribeirão Preto",
+      "porte": "médio",
+      "cadeiras": 3
+    },
+    {
+      "clinic_id": "CLI-008",
+      "nome": "Consultório Horizonte",
+      "cidade": "São Paulo",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-009",
+      "nome": "Odonto Ipê",
+      "cidade": "Araraquara",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-010",
+      "nome": "Clínica Santa Luzia",
+      "cidade": "Araraquara",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-011",
+      "nome": "Instituto Santa Luzia",
+      "cidade": "São Carlos",
+      "porte": "médio",
+      "cadeiras": 5
+    },
+    {
+      "clinic_id": "CLI-012",
+      "nome": "Odonto Bem-Estar",
+      "cidade": "São Paulo",
+      "porte": "grande",
+      "cadeiras": 7
+    },
+    {
+      "clinic_id": "CLI-013",
+      "nome": "Instituto Central",
+      "cidade": "Campinas",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-014",
+      "nome": "Consultório Bem-Estar",
+      "cidade": "Franca",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-015",
+      "nome": "Centro Odontológico Boa Vista",
+      "cidade": "São Paulo",
+      "porte": "médio",
+      "cadeiras": 5
+    },
+    {
+      "clinic_id": "CLI-016",
+      "nome": "Centro Odontológico Aurora",
+      "cidade": "Bauru",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-017",
+      "nome": "Odonto Vida",
+      "cidade": "Bauru",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-018",
+      "nome": "Consultório Central",
+      "cidade": "Sertãozinho",
+      "porte": "grande",
+      "cadeiras": 6
+    },
+    {
+      "clinic_id": "CLI-019",
+      "nome": "Clínica Santa Luzia",
+      "cidade": "Franca",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-020",
+      "nome": "Odonto Aurora",
+      "cidade": "Campinas",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-021",
+      "nome": "Consultório Sorriso",
+      "cidade": "Araraquara",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-022",
+      "nome": "Centro Odontológico Boa Vista",
+      "cidade": "São Paulo",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-023",
+      "nome": "Odonto São Lucas",
+      "cidade": "Bauru",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-024",
+      "nome": "Centro Odontológico São Lucas",
+      "cidade": "Ribeirão Preto",
+      "porte": "pequeno",
+      "cadeiras": 2
+    },
+    {
+      "clinic_id": "CLI-025",
+      "nome": "Odonto Santa Luzia",
+      "cidade": "Sertãozinho",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-026",
+      "nome": "Instituto Sorriso",
+      "cidade": "Ribeirão Preto",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-027",
+      "nome": "Centro Odontológico Vida",
+      "cidade": "Campinas",
+      "porte": "grande",
+      "cadeiras": 8
+    },
+    {
+      "clinic_id": "CLI-028",
+      "nome": "Centro Odontológico Vida",
+      "cidade": "Sertãozinho",
+      "porte": "médio",
+      "cadeiras": 4
+    },
+    {
+      "clinic_id": "CLI-029",
+      "nome": "Instituto Central",
+      "cidade": "Sertãozinho",
+      "porte": "pequeno",
+      "cadeiras": 1
+    },
+    {
+      "clinic_id": "CLI-030",
+      "nome": "Clínica Santa Luzia",
+      "cidade": "Araraquara",
+      "porte": "pequeno",
+      "cadeiras": 2
+    }
+  ],
+  "equipamentos": [
+    {
+      "device_id": "CAD-0001",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-001",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0002",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-001",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0003",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-001",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "PAN-0001",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-001",
+      "pacientes_dia": 15
+    },
+    {
+      "device_id": "CAD-0004",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0005",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0006",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0007",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0008",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0009",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0010",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0011",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "PAN-0002",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-002",
+      "pacientes_dia": 28
+    },
+    {
+      "device_id": "CAD-0012",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-003",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "PAN-0003",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-003",
+      "pacientes_dia": 7
+    },
+    {
+      "device_id": "CAD-0013",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0014",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0015",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0016",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0017",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0018",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "PAN-0004",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-004",
+      "pacientes_dia": 33
+    },
+    {
+      "device_id": "CAD-0019",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-005",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0020",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-005",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0021",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-005",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0022",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-005",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0023",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-005",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0024",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-006",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "PAN-0005",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-006",
+      "pacientes_dia": 4
+    },
+    {
+      "device_id": "CAD-0025",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-007",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0026",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-007",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0027",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-007",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "PAN-0006",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-007",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0028",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-008",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0029",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-008",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0030",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-009",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0031",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-009",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0032",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-010",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0033",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-010",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "PAN-0007",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-010",
+      "pacientes_dia": 4
+    },
+    {
+      "device_id": "CAD-0034",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-011",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0035",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-011",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0036",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-011",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0037",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-011",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0038",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-011",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0039",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0040",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0041",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0042",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0043",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0044",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0045",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "PAN-0008",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-012",
+      "pacientes_dia": 26
+    },
+    {
+      "device_id": "CAD-0046",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-013",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0047",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-014",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0048",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-014",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0049",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0050",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0051",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0052",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0053",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "PAN-0009",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-015",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0054",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-016",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0055",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-016",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "PAN-0010",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-016",
+      "pacientes_dia": 6
+    },
+    {
+      "device_id": "CAD-0056",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-017",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0057",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0058",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0059",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0060",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0061",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0062",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "PAN-0011",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-018",
+      "pacientes_dia": 21
+    },
+    {
+      "device_id": "CAD-0063",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-019",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0064",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-020",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0065",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-020",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0066",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-021",
+      "pacientes_dia": 10
+    },
+    {
+      "device_id": "CAD-0067",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-022",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0068",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-022",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0069",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-023",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0070",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-023",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "PAN-0012",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-023",
+      "pacientes_dia": 7
+    },
+    {
+      "device_id": "CAD-0071",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-024",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0072",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-024",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "PAN-0013",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-024",
+      "pacientes_dia": 5
+    },
+    {
+      "device_id": "CAD-0073",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-025",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "PAN-0014",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-025",
+      "pacientes_dia": 5
+    },
+    {
+      "device_id": "CAD-0074",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-026",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "PAN-0015",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-026",
+      "pacientes_dia": 7
+    },
+    {
+      "device_id": "CAD-0075",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "CAD-0076",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "CAD-0077",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0078",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 12
+    },
+    {
+      "device_id": "CAD-0079",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0080",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0081",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.0",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0082",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 8
+    },
+    {
+      "device_id": "PAN-0016",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-027",
+      "pacientes_dia": 25
+    },
+    {
+      "device_id": "CAD-0083",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-028",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0084",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-028",
+      "pacientes_dia": 13
+    },
+    {
+      "device_id": "CAD-0085",
+      "tipo": "CADEIRA",
+      "modelo": "C-100",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-028",
+      "pacientes_dia": 14
+    },
+    {
+      "device_id": "CAD-0086",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.1.2",
+      "clinic_id": "CLI-028",
+      "pacientes_dia": 9
+    },
+    {
+      "device_id": "PAN-0017",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.1.0",
+      "clinic_id": "CLI-028",
+      "pacientes_dia": 16
+    },
+    {
+      "device_id": "CAD-0087",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-029",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "PAN-0018",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-029",
+      "pacientes_dia": 7
+    },
+    {
+      "device_id": "CAD-0088",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-030",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "CAD-0089",
+      "tipo": "CADEIRA",
+      "modelo": "C-200",
+      "fw": "3.2.0",
+      "clinic_id": "CLI-030",
+      "pacientes_dia": 11
+    },
+    {
+      "device_id": "PAN-0019",
+      "tipo": "PANORAMICO",
+      "modelo": "PX-1",
+      "fw": "5.0.3",
+      "clinic_id": "CLI-030",
+      "pacientes_dia": 8
+    }
+  ]
+}

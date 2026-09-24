@@ -1,0 +1,479 @@
+{
+  "aviso": "Gabarito da simulação. O motor de regras NÃO lê este arquivo; ele só é usado em evaluate.py.",
+  "seed": 42,
+  "inicio": "2026-09-01T00:00:00-03:00",
+  "fim": "2026-09-15T00:00:00-03:00",
+  "falhas": [
+    {
+      "id": "F01",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0029",
+      "clinic_id": "CLI-008",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-05T09:01:56-03:00",
+      "falha": "2026-09-08T12:30:52-03:00",
+      "ligacao_cliente": "2026-09-08T13:16:41-03:00",
+      "reparo": "2026-09-09T07:29:27-03:00"
+    },
+    {
+      "id": "F02",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0028",
+      "clinic_id": "CLI-008",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-04T13:30:12-03:00",
+      "falha": "2026-09-08T08:37:27-03:00",
+      "ligacao_cliente": "2026-09-08T09:08:53-03:00",
+      "reparo": "2026-09-08T17:34:37-03:00"
+    },
+    {
+      "id": "F03",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0041",
+      "clinic_id": "CLI-012",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T09:01:38-03:00",
+      "falha": "2026-09-11T09:08:21-03:00",
+      "ligacao_cliente": "2026-09-11T09:39:05-03:00",
+      "reparo": "2026-09-12T10:30:01-03:00"
+    },
+    {
+      "id": "F04",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0003",
+      "clinic_id": "CLI-001",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:43:00-03:00",
+      "falha": "2026-09-12T09:00:50-03:00",
+      "ligacao_cliente": "2026-09-12T09:35:39-03:00",
+      "reparo": "2026-09-13T13:02:36-03:00"
+    },
+    {
+      "id": "F05",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0036",
+      "clinic_id": "CLI-011",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-04T10:17:51-03:00",
+      "falha": "2026-09-08T08:57:37-03:00",
+      "ligacao_cliente": "2026-09-08T09:23:33-03:00",
+      "reparo": "2026-09-09T05:06:22-03:00"
+    },
+    {
+      "id": "F06",
+      "tipo": "compressor",
+      "familia": "AR",
+      "device_id": "CAD-0071",
+      "clinic_id": "CLI-024",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-04T17:43:16-03:00",
+      "falha": "2026-09-08T11:41:21-03:00",
+      "ligacao_cliente": "2026-09-08T12:09:18-03:00",
+      "reparo": "2026-09-09T00:36:51-03:00"
+    },
+    {
+      "id": "F07",
+      "tipo": "motor",
+      "familia": "MOTOR",
+      "device_id": "CAD-0066",
+      "clinic_id": "CLI-021",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:59:49-03:00",
+      "falha": "2026-09-11T11:52:56-03:00",
+      "ligacao_cliente": "2026-09-11T12:16:58-03:00",
+      "reparo": "2026-09-12T09:59:31-03:00"
+    },
+    {
+      "id": "F08",
+      "tipo": "motor",
+      "familia": "MOTOR",
+      "device_id": "CAD-0072",
+      "clinic_id": "CLI-024",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T09:07:04-03:00",
+      "falha": "2026-09-12T09:00:18-03:00",
+      "ligacao_cliente": "2026-09-12T09:57:50-03:00",
+      "reparo": "2026-09-12T14:44:12-03:00"
+    },
+    {
+      "id": "F09",
+      "tipo": "motor",
+      "familia": "MOTOR",
+      "device_id": "CAD-0074",
+      "clinic_id": "CLI-026",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-05T10:21:27-03:00",
+      "falha": "2026-09-10T08:25:33-03:00",
+      "ligacao_cliente": "2026-09-10T09:20:19-03:00",
+      "reparo": "2026-09-10T22:28:32-03:00"
+    },
+    {
+      "id": "F10",
+      "tipo": "motor",
+      "familia": "MOTOR",
+      "device_id": "CAD-0081",
+      "clinic_id": "CLI-027",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-05T08:38:52-03:00",
+      "falha": "2026-09-09T08:31:28-03:00",
+      "ligacao_cliente": "2026-09-09T09:29:58-03:00",
+      "reparo": "2026-09-10T03:06:08-03:00"
+    },
+    {
+      "id": "F11",
+      "tipo": "motor",
+      "familia": "MOTOR",
+      "device_id": "CAD-0020",
+      "clinic_id": "CLI-005",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:33:18-03:00",
+      "falha": "2026-09-11T10:27:47-03:00",
+      "ligacao_cliente": "2026-09-11T11:24:17-03:00",
+      "reparo": "2026-09-11T22:23:28-03:00"
+    },
+    {
+      "id": "F12",
+      "tipo": "pedal_intermitente",
+      "familia": "PEDAL",
+      "device_id": "CAD-0013",
+      "clinic_id": "CLI-004",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T09:00:00-03:00",
+      "falha": "2026-09-10T08:13:32-03:00",
+      "ligacao_cliente": "2026-09-10T08:29:22-03:00",
+      "reparo": "2026-09-11T06:01:04-03:00"
+    },
+    {
+      "id": "F13",
+      "tipo": "pedal_intermitente",
+      "familia": "PEDAL",
+      "device_id": "CAD-0005",
+      "clinic_id": "CLI-002",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:21:36-03:00",
+      "falha": "2026-09-09T15:36:57-03:00",
+      "ligacao_cliente": "2026-09-09T16:36:46-03:00",
+      "reparo": "2026-09-10T21:03:33-03:00"
+    },
+    {
+      "id": "F14",
+      "tipo": "pedal_intermitente",
+      "familia": "PEDAL",
+      "device_id": "CAD-0059",
+      "clinic_id": "CLI-018",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-05T09:06:19-03:00",
+      "falha": "2026-09-09T09:12:02-03:00",
+      "ligacao_cliente": "2026-09-09T09:38:38-03:00",
+      "reparo": "2026-09-09T23:16:01-03:00"
+    },
+    {
+      "id": "F15",
+      "tipo": "pedal_subito",
+      "familia": "PEDAL",
+      "device_id": "CAD-0046",
+      "clinic_id": "CLI-013",
+      "com_precursor": false,
+      "inicio_degradacao": "2026-09-05T08:45:03-03:00",
+      "falha": "2026-09-05T08:45:03-03:00",
+      "ligacao_cliente": "2026-09-05T09:15:26-03:00",
+      "reparo": "2026-09-05T22:57:54-03:00"
+    },
+    {
+      "id": "F16",
+      "tipo": "pedal_subito",
+      "familia": "PEDAL",
+      "device_id": "CAD-0079",
+      "clinic_id": "CLI-027",
+      "com_precursor": false,
+      "inicio_degradacao": "2026-09-04T08:56:33-03:00",
+      "falha": "2026-09-04T08:56:33-03:00",
+      "ligacao_cliente": "2026-09-04T09:44:23-03:00",
+      "reparo": "2026-09-05T02:28:52-03:00"
+    },
+    {
+      "id": "F17",
+      "tipo": "tubo",
+      "familia": "TUBO",
+      "device_id": "PAN-0013",
+      "clinic_id": "CLI-024",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T09:06:42-03:00",
+      "falha": "2026-09-11T16:31:44-03:00",
+      "ligacao_cliente": "2026-09-11T17:17:37-03:00",
+      "reparo": "2026-09-12T07:22:46-03:00"
+    },
+    {
+      "id": "F18",
+      "tipo": "tubo",
+      "familia": "TUBO",
+      "device_id": "PAN-0017",
+      "clinic_id": "CLI-028",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:26:25-03:00",
+      "falha": "2026-09-11T09:11:03-03:00",
+      "ligacao_cliente": "2026-09-11T09:40:07-03:00",
+      "reparo": "2026-09-12T04:55:26-03:00"
+    },
+    {
+      "id": "F19",
+      "tipo": "tubo",
+      "familia": "TUBO",
+      "device_id": "PAN-0014",
+      "clinic_id": "CLI-025",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:44:44-03:00",
+      "falha": "2026-09-10T13:29:22-03:00",
+      "ligacao_cliente": "2026-09-10T14:13:44-03:00",
+      "reparo": "2026-09-11T08:35:47-03:00"
+    },
+    {
+      "id": "F20",
+      "tipo": "tubo",
+      "familia": "TUBO",
+      "device_id": "PAN-0005",
+      "clinic_id": "CLI-006",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:54:05-03:00",
+      "falha": "2026-09-10T16:11:04-03:00",
+      "ligacao_cliente": "2026-09-10T16:32:17-03:00",
+      "reparo": "2026-09-11T14:05:11-03:00"
+    },
+    {
+      "id": "F21",
+      "tipo": "sensor_intermitente",
+      "familia": "SENSOR",
+      "device_id": "PAN-0019",
+      "clinic_id": "CLI-030",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T11:50:13-03:00",
+      "falha": "2026-09-10T09:40:00-03:00",
+      "ligacao_cliente": "2026-09-10T10:14:21-03:00",
+      "reparo": "2026-09-11T13:18:02-03:00"
+    },
+    {
+      "id": "F22",
+      "tipo": "sensor_intermitente",
+      "familia": "SENSOR",
+      "device_id": "PAN-0003",
+      "clinic_id": "CLI-003",
+      "com_precursor": true,
+      "inicio_degradacao": "2026-09-08T08:28:42-03:00",
+      "falha": "2026-09-10T09:08:25-03:00",
+      "ligacao_cliente": "2026-09-10T09:48:50-03:00",
+      "reparo": "2026-09-10T17:14:58-03:00"
+    },
+    {
+      "id": "F23",
+      "tipo": "gerador_subito",
+      "familia": "GERADOR",
+      "device_id": "PAN-0008",
+      "clinic_id": "CLI-012",
+      "com_precursor": false,
+      "inicio_degradacao": "2026-09-03T16:16:31-03:00",
+      "falha": "2026-09-03T16:16:31-03:00",
+      "ligacao_cliente": "2026-09-03T16:55:30-03:00",
+      "reparo": "2026-09-04T14:58:50-03:00"
+    },
+    {
+      "id": "F24",
+      "tipo": "gerador_subito",
+      "familia": "GERADOR",
+      "device_id": "PAN-0009",
+      "clinic_id": "CLI-015",
+      "com_precursor": false,
+      "inicio_degradacao": "2026-09-08T09:08:51-03:00",
+      "falha": "2026-09-08T09:08:51-03:00",
+      "ligacao_cliente": "2026-09-08T10:01:37-03:00",
+      "reparo": "2026-09-08T16:55:52-03:00"
+    }
+  ],
+  "quedas_conexao": [
+    {
+      "device_id": "PAN-0008",
+      "inicio": "2026-09-03T14:46:31-03:00",
+      "reconexao": "2026-09-04T08:24:19-03:00",
+      "motivo": "teste: falha súbita durante queda de conexão"
+    },
+    {
+      "device_id": "PAN-0013",
+      "inicio": "2026-09-09T08:56:12-03:00",
+      "reconexao": "2026-09-10T08:23:17-03:00",
+      "motivo": "teste: queda no meio da degradação"
+    },
+    {
+      "device_id": "CAD-0013",
+      "inicio": "2026-09-11T08:59:35-03:00",
+      "reconexao": "2026-09-14T08:16:25-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0006",
+      "inicio": "2026-09-11T14:51:21-03:00",
+      "reconexao": "2026-09-11T17:28:36-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0007",
+      "inicio": "2026-09-04T17:15:37-03:00",
+      "reconexao": "2026-09-05T08:41:26-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0044",
+      "inicio": "2026-09-03T17:48:52-03:00",
+      "reconexao": "2026-09-04T08:22:39-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0046",
+      "inicio": "2026-09-11T17:05:39-03:00",
+      "reconexao": "2026-09-14T08:02:55-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0047",
+      "inicio": "2026-09-10T10:38:34-03:00",
+      "reconexao": "2026-09-11T08:06:08-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0050",
+      "inicio": "2026-09-01T10:56:11-03:00",
+      "reconexao": "2026-09-02T08:46:31-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0009",
+      "inicio": "2026-09-03T08:36:29-03:00",
+      "reconexao": "2026-09-03T16:14:22-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0055",
+      "inicio": "2026-09-08T11:26:00-03:00",
+      "reconexao": "2026-09-08T14:05:58-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0010",
+      "inicio": "2026-09-03T09:33:10-03:00",
+      "reconexao": "2026-09-03T15:57:22-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0011",
+      "inicio": "2026-09-05T09:44:16-03:00",
+      "reconexao": "2026-09-08T07:50:57-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0066",
+      "inicio": "2026-09-14T09:16:05-03:00",
+      "reconexao": "2026-09-14T23:27:57-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "CAD-0071",
+      "inicio": "2026-09-14T17:53:25-03:00",
+      "reconexao": "2026-09-15T04:04:47-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0017",
+      "inicio": "2026-09-01T12:53:06-03:00",
+      "reconexao": "2026-09-02T08:14:15-03:00",
+      "motivo": "aleatória"
+    },
+    {
+      "device_id": "PAN-0019",
+      "inicio": "2026-09-08T13:47:05-03:00",
+      "reconexao": "2026-09-09T07:41:44-03:00",
+      "motivo": "aleatória"
+    }
+  ],
+  "armadilhas": [
+    {
+      "device_id": "CAD-0037",
+      "tipo": "limpeza do pedal",
+      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real.",
+      "quando": "2026-09-08T16:50:03-03:00"
+    },
+    {
+      "device_id": "CAD-0032",
+      "tipo": "limpeza do pedal",
+      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real.",
+      "quando": "2026-09-04T17:32:50-03:00"
+    },
+    {
+      "device_id": "CAD-0082",
+      "tipo": "retransmissões espalhadas",
+      "descricao": "Cerca de 8 retransmissões do pedal por dia, espalhadas: incômodo, mas não é padrão de falha."
+    },
+    {
+      "device_id": "CAD-0012",
+      "tipo": "retransmissões espalhadas",
+      "descricao": "Cerca de 8 retransmissões do pedal por dia, espalhadas: incômodo, mas não é padrão de falha."
+    },
+    {
+      "device_id": "CAD-0006",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.25 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0012",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.33 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0018",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.33 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0022",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.39 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0023",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.33 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0030",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.33 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0034",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.33 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0037",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.23 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0076",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.35 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0078",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.39 A, acima da média da frota, sem defeito algum."
+    },
+    {
+      "device_id": "CAD-0089",
+      "tipo": "corrente naturalmente alta",
+      "descricao": "O normal desta cadeira é 3.40 A, acima da média da frota, sem defeito algum."
+    }
+  ]
+}
