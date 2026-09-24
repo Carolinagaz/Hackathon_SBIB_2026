@@ -9,6 +9,9 @@ As falhas são inseridas DE PROPÓSITO, com data marcada, e anotadas num gabarit
 (data/ground_truth.json). O motor de regras NUNCA lê o gabarito: ele só é usado
 depois, em evaluate.py, para contar acertos, falsos alarmes e antecedência.
 
+Também simulamos o modo limpeza (a cadeira avisa quando entra e sai) e o canal
+reserva (erros saem por 4G/SMS quando a internet principal cai).
+
 Também simulamos o que atrapalha na vida real: quedas de conexão (o equipamento
 guarda os eventos e reenvia depois), mensagens duplicadas, eventos perdidos,
 feriado, domingo fechado e "armadilhas" que parecem defeito, mas não são.
@@ -259,8 +262,8 @@ def _sortear_armadilhas(rng, equipamentos, oculto, falhas, intervalos):
         on, off = intervalos[did][rng.randrange(len(intervalos[did]))]
         arm.append({"device_id": did, "tipo": "limpeza do pedal",
                     "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de "
-                                 "retransmissões sem defeito real.",
-                    "quando": _iso(off - _min(35)), "_ini": off - _min(rng.uniform(25, 40)),
+                                 "retransmissões sem defeito real (a cadeira avisa o modo limpeza).",
+                    "quando": _iso(off - _min(35)), "_off": off, "_ini": off - _min(rng.uniform(25, 40)),
                     "_n": rng.randint(15, 22)})
     for did in saudaveis[2:4]:
         oculto[did]["retry_h"] = 0.8
@@ -339,9 +342,20 @@ def _eventos_da_falha(rng, f, iv, fracao):
     return ev
 
 
-def _eventos(rng, eq, oc, iv, falha, armadilhas):
+def _eventos(rng, eq, oc, iv, falha, armadilhas, rng2):
     px = "CHR" if eq["tipo"] == "CADEIRA" else "PAN"
     ev = []
+    if eq["tipo"] == "CADEIRA":
+        # limpeza no fim do expediente: a cadeira avisa quando entra e sai do modo limpeza
+        forcadas = {a["_off"]: a["_ini"] for a in armadilhas if a["tipo"] == "limpeza do pedal"}
+        for on, off in iv:
+            if off in forcadas:
+                ev.append((forcadas[off] - _min(1), "CHR_CLEANING_START", None))
+                ev.append((forcadas[off] + _min(22), "CHR_CLEANING_END", None))
+            elif rng2.random() < 0.5:
+                ini = off - _min(rng2.uniform(20, 40))
+                ev.append((ini, "CHR_CLEANING_START", None))
+                ev.append((ini + _min(rng2.uniform(12, 18)), "CHR_CLEANING_END", None))
     for on, off in iv:
         ev.append((on, f"{px}_POWER_ON", None))
         t = on + _min(60)
@@ -395,15 +409,16 @@ def _eventos(rng, eq, oc, iv, falha, armadilhas):
     return ev
 
 
-def _emitir(rng, eq, eventos, quedas):
+def _emitir(rng_principal, eq, eventos, quedas, rng2):
     """Transforma eventos em mensagens do protocolo e decide QUANDO cada uma chega.
     Durante uma queda, o equipamento guarda os eventos e reenvia tudo, em ordem,
     na reconexão. MQTT QoS 1 = 'pelo menos uma vez', então às vezes chega duplicado."""
     linhas = []
-    seq = rng.randint(1000, 90000)
+    seq = rng_principal.randint(1000, 90000)
     ultimo = None
     for ts, code, value in eventos:
         seq += 1
+        rng = rng2 if code.startswith("CHR_CLEANING") else rng_principal
         if rng.random() < 0.0003:
             continue  # perdido: nunca chega (o salto no seq denuncia)
         rec = ts + timedelta(seconds=rng.uniform(0.3, 4.0))
@@ -421,6 +436,10 @@ def _emitir(rng, eq, eventos, quedas):
             msg["value"] = value
             msg["unit"] = UNIDADE[code]
         linhas.append((rec, {**msg, "received_at": _iso(rec, ms=True)}))
+        if guardado and msg["lvl"] == "ERROR":
+            # canal reserva (4G/SMS): o erro chega em ~1 min; a cópia do buffer vira duplicata
+            reserva = ts + timedelta(seconds=rng2.uniform(20, 90))
+            linhas.append((reserva, {**msg, "canal": "reserva", "received_at": _iso(reserva, ms=True)}))
         if rng.random() < (0.05 if guardado else 0.001):
             dup = rec + (timedelta(milliseconds=rng.uniform(1, 15)) if guardado
                          else timedelta(seconds=rng.uniform(1, 30)))
@@ -433,6 +452,7 @@ def _emitir(rng, eq, eventos, quedas):
 # ---------------------------------------------------------------------------
 def gerar(pasta="data", n_clinicas=30, dias=14, seed=42) -> dict:
     rng = random.Random(seed)
+    rng2 = random.Random(seed + 1000)  # só para o que foi acrescentado nas correções
     clinicas, equipamentos, oculto = _frota(rng, n_clinicas)
     agenda = {c["clinic_id"]: _agenda(rng, dias) for c in clinicas}
     intervalos = {e["device_id"]: _intervalos_ligado(rng, agenda[e["clinic_id"]]) for e in equipamentos}
@@ -448,12 +468,12 @@ def gerar(pasta="data", n_clinicas=30, dias=14, seed=42) -> dict:
     linhas = []
     for e in equipamentos:
         did = e["device_id"]
-        evs = _eventos(rng, e, oculto[did], intervalos[did], falha_do.get(did), arm_do.get(did, []))
+        evs = _eventos(rng, e, oculto[did], intervalos[did], falha_do.get(did), arm_do.get(did, []), rng2)
         # se a conexão volta com o equipamento desligado, ele só reenvia quando for ligado
         q = [(ini, _ligado_a_partir(intervalos[did], fim, margem_min=0) or fim, motivo)
              for ini, fim, motivo in quedas.get(did, [])]
         quedas[did] = q
-        linhas += _emitir(rng, e, evs, q)
+        linhas += _emitir(rng, e, evs, q, rng2)
     linhas.sort(key=lambda x: (x[0], x[1]["device_id"], x[1]["seq"]))
 
     pasta = Path(pasta)

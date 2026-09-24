@@ -14,6 +14,7 @@ Observações P3 não acionam ninguém; são contadas à parte.
 """
 from __future__ import annotations
 
+import random
 from collections import Counter
 from datetime import timedelta
 from statistics import median
@@ -22,6 +23,27 @@ from catalog import AVISO, ERRO, RUIDO, TIERS
 from engine import Motor, parse_ts
 
 MARGEM = timedelta(hours=2)
+
+
+def _casa(a, f):
+    """O alerta a corresponde à falha f do gabarito?"""
+    return (a.device_id == f["device_id"] and a.familia == f["familia"]
+            and parse_ts(f["inicio_degradacao"]) - MARGEM <= a.primeira_notificacao_ts_evento <= parse_ts(f["reparo"]))
+
+
+class TecnicoSimulado:
+    """Simula o retorno do técnico ao fechar o chamado, de 2 a 24 h depois do
+    alerta: ele liga ou vai ao consultório e descobre se o problema era real.
+    Usa o gabarito porque representa o que o técnico vê em campo; o motor só
+    recebe o veredito, e só depois desse tempo. Em produção, vem do sistema de chamados."""
+
+    def __init__(self, gabarito, seed=7):
+        self.falhas = gabarito["falhas"]
+        self.rng = random.Random(seed)
+
+    def veredito(self, a):
+        real = any(_casa(a, f) for f in self.falhas)
+        return real, a.primeira_notificacao + timedelta(hours=self.rng.uniform(2, 24))
 
 
 def _primeiro_estado_notificado(a):
@@ -42,8 +64,7 @@ def avaliar(motor, gabarito, familia=None):
     acertos, linhas = set(), []
     for f in falhas:
         ini, fim = parse_ts(f["inicio_degradacao"]) - MARGEM, parse_ts(f["reparo"])
-        cands = [a for a in notificados if a.device_id == f["device_id"] and a.familia == f["familia"]
-                 and ini <= a.primeira_notificacao_ts_evento <= fim]
+        cands = [a for a in notificados if _casa(a, f)]
         acertos.update(a.id for a in cands)
         linha = {"falha": f["id"], "tipo": f["tipo"], "device_id": f["device_id"], "com_precursor": f["com_precursor"],
                  "detectada": False, "antes_da_ligacao": False, "antes_de_parar": False, "antecedencia_h": None,
@@ -106,7 +127,34 @@ def funil(motor):
         "notificacoes": len(motor.notificacoes),
         "notificacoes_novas": motivos["novo"], "escalonamentos": motivos["escalado"], "lembretes": motivos["lembrete"],
         "notificacoes_sem_agrupamento": c[AVISO] + c[ERRO],
+        "retransmissoes_ignoradas_na_limpeza": c["ignorados_na_limpeza"],
+        "erros_pelo_canal_reserva": c["via_canal_reserva"],
+        "vereditos_confirmados": c["vereditos_confirmados"],
+        "vereditos_falso_alarme": c["vereditos_falsos"],
+        "ocorrencias_rebaixadas_por_confiabilidade": c["rebaixados_por_confiabilidade"],
     }
+
+
+def confiabilidade(motor):
+    """Acertos de cada regra segundo o retorno dos técnicos."""
+    return [{"regra": r, "confirmados": c["acertos"], "vereditos": c["vereditos"],
+             "em_revisao": motor._em_revisao(r)} for r, c in sorted(motor.confiab.items())]
+
+
+def comparar_versoes(eventos, frota, gabarito, motor_corrigido):
+    """Mesmos logs: a primeira versão (sem correções) contra a atual."""
+    v1 = Motor(frota, correcoes=False, guardar_log=False).processar_todos(eventos)
+    saida = []
+    for nome, m in [("Primeira versão", v1), ("Com as correções", motor_corrigido)]:
+        av, fu = avaliar(m, gabarito), funil(m)
+        r = av["resumo"]
+        saida.append({
+            "versao": nome, "falsos_alarmes": r["falsos_alarmes"], "precisao": r["precisao"],
+            "antes_de_parar": r["antecipadas_antes_de_parar"], "antes_da_ligacao": r["detectadas_antes_da_ligacao"],
+            "falhas": r["falhas_simuladas"], "antecedencia_mediana_h": r["antecedencia_mediana_h_com_precursor"],
+            "notificacoes": fu["notificacoes"], "lembretes": fu["lembretes"],
+        })
+    return saida
 
 
 def comparar_regra_motor(eventos, frota, gabarito):

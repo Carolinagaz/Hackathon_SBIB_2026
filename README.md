@@ -47,7 +47,7 @@ flowchart LR
 | Notificação | registrada em `notifications.json` | push/SMS/e-mail/WhatsApp + abertura de chamado |
 | Painel | Streamlit | web do suporte |
 
-**Escala.** Todo o estado das regras é por equipamento, então o fluxo divide por `device_id` sem coordenação. Na simulação, cada equipamento gera cerca de 35 mensagens por dia de uso: 10 mil equipamentos dão ~350 mil mensagens/dia, uns 10 por segundo em média, com pico às 8 h e nas reconexões. Um único processo Python do protótipo processou **~124 mil mensagens/s** (37.545 em 0,30 s num notebook; teste maior: `python run.py --clinicas 300 --dias 5 --dados carga --sem-comparacao`).
+**Escala.** Todo o estado das regras é por equipamento, então o fluxo divide por `device_id` sem coordenação. Na simulação, cada equipamento gera cerca de 35 mensagens por dia de uso: 10 mil equipamentos dão ~350 mil mensagens/dia, uns 10 por segundo em média, com pico às 8 h e nas reconexões. Um único processo Python do protótipo processou **~130 mil mensagens/s** (38.402 em 0,3 s num notebook; teste maior: `python run.py --clinicas 300 --dias 5 --dados carga --sem-comparacao`).
 
 ## Protocolo e formato do log
 
@@ -71,7 +71,7 @@ flowchart LR
 | `value`, `unit` | medida, quando existe |
 | `received_at` | **carimbado pelo servidor** na chegada (aparece em `events.jsonl`) |
 
-**Sem conexão:** o equipamento continua funcionando e guarda os eventos numa fila local (ex.: 7 dias). Na reconexão, reenvia em ordem e só apaga o que o broker confirmou. Se a fila encher, descarta ruído primeiro e nunca erro. O servidor usa `ts` para as janelas das regras e `received_at` para prazos e antecedência. Como QoS 1 pode entregar duas vezes, o servidor descarta repetidos pelo par `device_id + seq`; um salto no `seq` indica mensagem perdida.
+**Sem conexão:** o equipamento continua funcionando e guarda os eventos numa fila local (ex.: 7 dias). Só os **erros** saem na hora por um **canal reserva** (4G/SMS), com o mesmo `seq`; a cópia que vem depois no reenvio é descartada como duplicata. Na reconexão, reenvia em ordem e só apaga o que o broker confirmou. Se a fila encher, descarta ruído primeiro e nunca erro. O servidor usa `ts` para as janelas das regras e `received_at` para prazos e antecedência. Como QoS 1 pode entregar duas vezes, o servidor descarta repetidos pelo par `device_id + seq`; um salto no `seq` indica mensagem perdida.
 
 **Ligado, desligado ou sem sinal:** o equipamento manda `POWER_ON`, `POWER_OFF` e um sinal de vida a cada 60 min. Desligou normalmente, não é alerta. Ligado e calado há 2 h aparece como "sem sinal" no painel.
 
@@ -89,17 +89,30 @@ flowchart LR
 |---|---|---|
 | R0 | Evento AVISO que não completa nenhum padrão | Observação P3 |
 | R1 | Qualquer evento ERRO | P1 · falha ativa |
-| R2 | ≥ 3 `CHR_AIR_PRESSURE_LOW` do mesmo equipamento com `ts` numa janela de 24 h | P2 · compressor perdendo rendimento |
-| R3 | ≥ 4 `PAN_TUBE_TEMP_HIGH` em 24 h | P2 · arrefecimento do tubo perdendo eficiência |
-| R4 | ≥ 15 `CHR_PEDAL_COMM_RETRY` em 2 h (ruído que vira padrão) | P2 · comunicação do pedal instável |
+| R2 | ≥ 3 `CHR_AIR_PRESSURE_LOW` do mesmo equipamento em 10 h de **uso** | P2 · compressor perdendo rendimento |
+| R3 | ≥ 4 `PAN_TUBE_TEMP_HIGH` em 10 h de uso | P2 · arrefecimento do tubo perdendo eficiência |
+| R4 | ≥ 15 `CHR_PEDAL_COMM_RETRY` em 2 h, sem contar o modo limpeza (ruído que vira padrão) | P2 · comunicação do pedal instável |
 | R5 | ≥ 10 `PAN_SENSOR_COMM_RETRY` em 4 h | P2 · conexão do sensor instável |
 | R6 | Média móvel exponencial (α = 0,1) da corrente de `CHR_MOVE_CYCLE` acima do normal **da própria cadeira** + max(5σ, 0,25 A); o normal é aprendido nos primeiros 60 movimentos | P2 · desvio de comportamento do motor |
 
-**Exemplo sem ambiguidade (R2):** para cada evento `CHR_AIR_PRESSURE_LOW` recebido, conte os eventos com o mesmo `code` e o mesmo `device_id` cujo `ts` esteja em `[ts − 24 h, ts]`. Se a contagem for ≥ 3, abra um alerta P2 da família AR para o equipamento; se já houver alerta aberto dessa família, escale-o para P2 (ou apenas agrupe, se já for P2 ou P1).
+**Exemplo sem ambiguidade (R2):** para cada evento `CHR_AIR_PRESSURE_LOW` recebido, conte os eventos com o mesmo `code` e o mesmo `device_id` ocorridos nas últimas 10 horas em que o equipamento esteve ligado (entre `POWER_ON` e `POWER_OFF`). Se a contagem for ≥ 3, abra um alerta P2 da família AR para o equipamento; se já houver alerta aberto dessa família, escale-o para P2 (ou apenas agrupe, se já for P2 ou P1).
 
 **Agrupamento:** existe no máximo um alerta aberto por equipamento e família (compressor, motor, pedal, tubo, sensor, gerador). Ocorrências novas somam nele; se o quadro piora, o mesmo alerta sobe de P3 para P2 e para P1.
 **Tempo de silêncio:** lembrete só se o problema continuar depois de 4 h (P1) ou 24 h (P2).
 **Encerramento:** após 8 h de **uso** sem nova ocorrência. Noite, domingo e feriado não contam, porque o equipamento estava desligado. Em produção, o técnico também encerra pelo chamado.
+
+## Modo limpeza e fadiga de alertas
+
+**Modo limpeza.** A cadeira manda `CHR_CLEANING_START` e `CHR_CLEANING_END` quando entra e sai da limpeza. Nesse intervalo (no máximo 2 h), as retransmissões do pedal ficam guardadas, mas não contam para a R4: desconectar o pedal para limpar deixa de parecer cabo com mau contato.
+
+**Fadiga de alertas.** Depois de alguns alarmes falsos, o suporte passa a ignorar todos, inclusive os verdadeiros. As defesas:
+
+1. **Poucas notificações:** um alerta por equipamento e subsistema, tempo de silêncio e P3 que nunca aciona ninguém.
+2. **Retorno do técnico:** ao fechar o chamado, ele marca "problema real" ou "falso alarme". Alerta confirmado não gera mais lembretes, porque alguém já está cuidando; falso alarme encerra o alerta.
+3. **Histórico em cada notificação:** "Histórico da regra R2: 4 de 4 alertas confirmados em campo." O suporte sabe quanto confiar.
+4. **Rebaixamento automático:** uma regra com menos de 50% de acerto depois de 4 vereditos para de acionar pessoas e vira P3 até alguém revisá-la. Erros (R1) sempre acionam.
+
+Na simulação, o retorno do técnico é feito por `evaluate.TecnicoSimulado`, que responde de 2 a 24 h depois do alerta. Em produção, ele viria do sistema de chamados.
 
 ## Prioridade e fluxo de notificação
 
@@ -115,7 +128,7 @@ Cada notificação leva o consultório, o equipamento, o que foi visto e uma **a
 
 ## Como os logs de exemplo foram gerados
 
-`simulator.py`, seed 42: 30 consultórios fictícios no interior de SP (pequenos, médios e grandes), 89 cadeiras e 19 panorâmicos, de 01/09 a 14/09/2026, com domingo fechado, meio expediente em alguns sábados e o feriado de 7 de setembro. São 37.545 mensagens.
+`simulator.py`, seed 42: 30 consultórios fictícios no interior de SP (pequenos, médios e grandes), 89 cadeiras e 19 panorâmicos, de 01/09 a 14/09/2026, com domingo fechado, meio expediente em alguns sábados e o feriado de 7 de setembro. São 38.402 mensagens, incluindo os avisos de modo limpeza e as mensagens do canal reserva.
 
 - **24 falhas com data marcada:** 20 com sinais precursores (compressor, motor, pedal e sensor com mau contato, arrefecimento do tubo) e 4 súbitas (pedal e gerador). O cliente "liga" 15 a 60 min depois que o equipamento para.
 - **17 quedas de conexão** de 1 a 20 h, com reenvio e duplicatas. Duas são testes de propósito: uma falha súbita no meio da queda e uma queda no meio de uma degradação.
@@ -127,12 +140,26 @@ O motor nunca lê o gabarito. Ele só é usado em `evaluate.py`.
 
 | Métrica | Valor |
 |---|---|
-| Falhas avisadas antes da ligação do cliente | **23 de 24** (96%) |
+| Falhas avisadas antes da ligação do cliente | **24 de 24** |
 | Falhas avisadas antes de o equipamento parar | **18 de 24** (18 das 20 que tinham sinais) |
 | Antecedência mediana, falhas com sinais | **41 h** |
-| Falhas súbitas | alerta chega em mediana **48 min** antes da ligação |
-| Precisão das notificações (P1 + P2) | **93%**: 2 falsos alarmes em 27 alertas que acionaram alguém |
-| Notificações | **95**, contra 965 se cada aviso ou erro virasse uma notificação |
+| Falhas súbitas | alerta chega em mediana **43 min** antes da ligação |
+| Falsos alarmes | **0** em 25 alertas que acionaram alguém |
+| Notificações | **47**, contra 957 se cada aviso ou erro virasse uma notificação |
+
+**Antes e depois das correções (mesmos logs, `python run.py`):**
+
+| Versão | Falsos alarmes | Antes da ligação | Antes de parar | Notificações (lembretes) |
+|---|---|---|---|---|
+| Primeira versão | 2 | 23/24 | 18/24 | 95 (50) |
+| Com as correções | **0** | **24/24** | 18/24 | **47 (4)** |
+
+- **Falsos alarmes 2 → 0:** eram as limpezas do pedal; o modo limpeza resolveu.
+- **Antes da ligação 23 → 24:** o gerador que parou durante uma queda de internet agora chega pelo canal reserva em cerca de 1 minuto.
+- **Notificações 95 → 47:** quando o técnico confirma o alerta, os lembretes param.
+- **Antes de parar continua 18/24.** Os 2 compressores não antecipados quase não deram sinal: um teve zero avisos antes de parar e o outro, dois. Nenhuma regra antecipa isso. A janela em horas de uso ficou como melhoria para degradações que atravessam fim de semana e feriado.
+
+**Cuidado ao apresentar:** desenhamos as armadilhas e também as correções, então 0 falso alarme aqui não significa 0 em campo. Por isso existe o retorno do técnico: ele mede a precisão real de cada regra depois que o sistema estiver rodando.
 
 **Limiar fixo contra desvio de cada cadeira (5 falhas de motor, mesmos logs):**
 
@@ -142,22 +169,19 @@ O motor nunca lê o gabarito. Ele só é usado em `evaluate.py`.
 | Limiar fixo 3,6 A | 5/5 | 24 h | 0 |
 | Desvio do normal de cada cadeira (R6) | 5/5 | **42 h** | **0** |
 
-**O que deu errado, e por quê:**
-- **Os 2 falsos alarmes** são as limpezas do pedal (R4 com exatamente 15 retransmissões em 2 h). Correção possível: o firmware mandar um evento de "modo limpeza", ou exigir rajadas em dois dias diferentes.
-- **1 falha avisada depois da ligação:** o gerador parou durante uma queda de conexão; o alerta só chegou quando o equipamento reconectou. Nenhuma regra resolve isso, só redundância de conexão.
-- **2 compressores só foram vistos quando pararam:** a degradação começou numa sexta, antes do domingo e do feriado; com o consultório fechado, os avisos nunca somaram 3 em 24 h. Próximo passo: contar a janela em horas de uso, não em horas de relógio.
-
 ## Limitações
 
 - Números medidos contra falhas que nós mesmos desenhamos: validam a lógica, não o desempenho em campo. O próximo passo é rodar sobre logs reais e o histórico de chamados.
 - Códigos, limites e ações são inventados; precisam do firmware e da base de conhecimento do suporte.
-- Confirmação de leitura, escalonamento para a coordenação e envio real de mensagens estão descritos, não implementados.
+- Escalonamento para a coordenação e envio real de mensagens estão descritos, não implementados. O retorno do técnico é simulado.
+- O canal reserva exige hardware (modem 4G ou SMS) no equipamento ou no gateway do consultório.
+- O modo limpeza depende de o firmware mandar os dois eventos; se o fim não chegar, o modo expira em 2 h.
 - O normal de cada cadeira é aprendido uma vez; em produção, deve ser reaprendido após cada manutenção.
 
 ## Próximos passos
 
 1. Adaptar a leitura para os logs reais da Alliage e medir contra o histórico de chamados.
-2. Janelas contadas em horas de uso.
+2. Validar com o firmware os eventos de modo limpeza e o canal reserva.
 3. Ajustar limites por modelo com os dados reais.
 4. Integrar com o sistema de chamados e com o app do técnico.
 

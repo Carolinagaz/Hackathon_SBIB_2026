@@ -15,8 +15,8 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from catalog import (CATEGORIAS, DRIFT_RULE, ENCERRA_APOS_USO_H, EVENT_CATALOG, FAMILIAS, NOME_EQUIP, SEM_SINAL_H,
-                     TIERS, WINDOW_RULES)
+from catalog import (CATEGORIAS, CONFIABILIDADE, DRIFT_RULE, ENCERRA_APOS_USO_H, EVENT_CATALOG, FAMILIAS,
+                     LIMPEZA_MAX_H, NOME_EQUIP, SEM_SINAL_H, TIERS, WINDOW_RULES)
 from engine import limite_desvio, parse_ts
 from run import escolher_falha_pitch, rodar_tudo
 from simulator import TZ
@@ -73,7 +73,7 @@ def carregar():
     log = pd.DataFrame(motor.log)
     log["recebido"] = pd.to_datetime([local(x) for x in log["recebido"]])
     log["ts"] = pd.to_datetime([local(x) for x in log["ts"]])
-    unicos = log[~log["efeito"].str.startswith("duplicata")]
+    unicos = log[~log["efeito"].str.startswith("duplicata") & ~log["efeito"].str.startswith("ignorado")]
     ultimo = {}
     for did, g in unicos.sort_values("recebido").groupby("device_id", sort=False):
         ultimo[did] = ([t.to_pydatetime() for t in g["recebido"]], list(g["code"]))
@@ -337,15 +337,39 @@ with aba_met:
         "Antecedência (h)": x["antecedencia_h"], "Prioridade": x["prioridade_inicial"], "Regra": x["regra"],
     } for x in met["falhas"]]), hide_index=True)
 
+    if "antes_e_depois" in met:
+        st.subheader("Antes e depois das correções")
+        st.dataframe(pd.DataFrame([{
+            "Versão": v["versao"], "Falsos alarmes": v["falsos_alarmes"], "Precisão": f"{100 * v['precisao']:.0f}%",
+            "Avisadas antes da ligação": f"{v['antes_da_ligacao']}/{v['falhas']}",
+            "Avisadas antes de parar": f"{v['antes_de_parar']}/{v['falhas']}",
+            "Notificações": v["notificacoes"], "Lembretes": v["lembretes"],
+        } for v in met["antes_e_depois"]]), hide_index=True)
+        st.write(f"**Modo limpeza:** {fu['retransmissoes_ignoradas_na_limpeza']} retransmissões do pedal durante a "
+                 f"limpeza deixaram de contar. **Canal reserva:** {fu['erros_pelo_canal_reserva']} erros chegaram por "
+                 f"4G/SMS durante quedas da internet. **Retorno dos técnicos:** alerta confirmado não gera mais "
+                 f"lembrete, porque alguém já está cuidando; foram {fu['vereditos_confirmados']} confirmados e "
+                 f"{fu['vereditos_falso_alarme']} marcados como falsos.")
+        st.caption("Os 2 compressores que só foram vistos ao parar quase não deram sinal antes: um teve zero avisos e "
+                   "o outro, dois. Nenhuma regra antecipa isso; a janela em horas de uso ficou como melhoria para "
+                   "degradações que atravessam fim de semana e feriado.")
+
+    st.subheader("Confiabilidade das regras (retorno dos técnicos)")
+    st.dataframe(pd.DataFrame([{"Regra": c["regra"], "Confirmados em campo": f"{c['confirmados']} de {c['vereditos']}",
+                                "Situação": "em revisão: só painel" if c["em_revisao"] else "ativa"}
+                               for c in met.get("confiabilidade_das_regras", [])]), hide_index=True)
+    st.caption(f"Cada notificação mostra esse histórico. Uma regra com menos de "
+               f"{100 * CONFIABILIDADE['min_acerto']:.0f}% de acerto, depois de {CONFIABILIDADE['min_vereditos']} "
+               "vereditos, para de acionar pessoas e vira P3 até ser revisada. Erros (R1) sempre acionam.")
+
     st.subheader("Falsos alarmes")
     if met["falsos_alarmes"]:
         st.dataframe(pd.DataFrame([{"Alerta": x["alerta"], "Equipamento": x["device_id"], "Regra": x["regra"],
                                     "O que disparou": x["detalhe"], "Por que era falso": x["explicacao"]}
                                    for x in met["falsos_alarmes"]]), hide_index=True)
-        st.caption("A limpeza do consultório reconecta o pedal e imita um cabo com mau contato. Próximo passo: "
-                   "o firmware mandar um evento de modo limpeza, ou exigir rajadas em dois dias diferentes.")
     else:
-        st.write("Nenhum nesta simulação.")
+        st.write("Nenhum na versão corrigida. Na primeira versão foram 2, ambos causados pela limpeza do pedal "
+                 "(veja a tabela de antes e depois).")
 
     if "comparacao_regra_motor" in met:
         st.subheader("Motor da cadeira: limiar fixo contra desvio do normal de cada cadeira")
@@ -406,8 +430,9 @@ with aba_regras:
     regras_tab = [{"Regra": "R0", "Quando": "Evento AVISO que não completa nenhum padrão", "Resultado": "Observação P3"},
                   {"Regra": "R1", "Quando": "Qualquer evento de categoria ERRO", "Resultado": "Alerta P1 · falha ativa"}]
     for code, rg in WINDOW_RULES.items():
-        regras_tab.append({"Regra": rg["id"], "Quando": f"≥ {rg['min']} eventos {code} do mesmo equipamento em "
-                                                        f"{rg['janela_h']} h (pelo horário do evento)",
+        janela = f"{rg['janela_uso_h']} h de uso" if "janela_uso_h" in rg else f"{rg['janela_h']} h (pelo horário do evento)"
+        regras_tab.append({"Regra": rg["id"], "Quando": f"≥ {rg['min']} eventos {code} do mesmo equipamento em {janela}"
+                                                        + (" (fora do modo limpeza)" if code == "CHR_PEDAL_COMM_RETRY" else ""),
                            "Resultado": f"Alerta {rg['tier']} · {rg['titulo']}"})
     regras_tab.append({"Regra": "R6", "Quando": f"Média móvel (EWMA, α={DRIFT_RULE['alfa']}) da corrente de "
                                                 f"{DRIFT_RULE['code']} acima do normal da própria cadeira + "
@@ -415,6 +440,11 @@ with aba_regras:
                                                 f"normal aprendido nos primeiros {DRIFT_RULE['ciclos_aprendizado']} movimentos",
                        "Resultado": f"Alerta P2 · {DRIFT_RULE['titulo']}"})
     st.dataframe(pd.DataFrame(regras_tab), hide_index=True)
+    st.write(f"**Modo limpeza:** entre CHR_CLEANING_START e CHR_CLEANING_END (máximo de {LIMPEZA_MAX_H} h), as "
+             "retransmissões do pedal ficam guardadas, mas não contam para a R4. **Janelas R2 e R3:** contadas em "
+             "horas de uso, então noite, domingo e feriado não zeram a contagem. **Canal reserva:** com a internet "
+             "fora, só os erros saem por 4G/SMS; o resto espera a reconexão. **Retorno do técnico:** ao fechar o "
+             "chamado, ele confirma ou marca falso alarme; isso alimenta a confiabilidade de cada regra.")
     st.write(f"**Agrupamento:** um alerta por equipamento e família ({', '.join(FAMILIAS.values())}). "
              "Novas ocorrências somam no mesmo alerta; se piorar, o mesmo alerta escala (P3 → P2 → P1). "
              f"**Tempo de silêncio:** lembrete só depois de {TIERS['P1']['silencio_h']} h (P1) ou "

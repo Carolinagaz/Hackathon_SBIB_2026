@@ -71,6 +71,8 @@ EVENT_CATALOG = {
     "CHR_MOVE_CYCLE": _ev("CADEIRA", RUIDO, "MOTOR",
                           "Movimento da cadeira concluído; value = corrente de pico do motor (A)"),
     "CHR_PEDAL_COMM_RETRY": _ev("CADEIRA", RUIDO, "PEDAL", "Pedal precisou retransmitir um comando"),
+    "CHR_CLEANING_START": _ev("CADEIRA", RUIDO, None, "Modo limpeza ativado no painel da cadeira"),
+    "CHR_CLEANING_END": _ev("CADEIRA", RUIDO, None, "Modo limpeza encerrado"),
     "CHR_AIR_PRESSURE_LOW": _ev("CADEIRA", AVISO, "AR", "Pressão de ar abaixo do mínimo; value = bar"),
     "CHR_AIR_PRESSURE_CRITICAL": _ev("CADEIRA", ERRO, "AR",
                                      "Pressão insuficiente para as peças de mão; value = bar",
@@ -109,24 +111,24 @@ EVENT_CATALOG = {
 # ---------------------------------------------------------------------------
 WINDOW_RULES = {
     "CHR_AIR_PRESSURE_LOW": {
-        "id": "R2", "min": 3, "janela_h": 24, "tier": "P2",
+        "id": "R2", "min": 3, "janela_h": 24, "janela_uso_h": 10, "tier": "P2",
         "titulo": "Compressor perdendo rendimento",
-        "detalhe": "{n} avisos de pressão baixa em 24 h (último: {valor} bar)",
+        "detalhe": "{n} avisos de pressão baixa em {janela} (último: {valor} bar)",
     },
     "PAN_TUBE_TEMP_HIGH": {
-        "id": "R3", "min": 4, "janela_h": 24, "tier": "P2",
+        "id": "R3", "min": 4, "janela_h": 24, "janela_uso_h": 10, "tier": "P2",
         "titulo": "Arrefecimento do tubo perdendo eficiência",
-        "detalhe": "{n} avisos de tubo quente em 24 h (último: {valor} °C)",
+        "detalhe": "{n} avisos de tubo quente em {janela} (último: {valor} °C)",
     },
     "CHR_PEDAL_COMM_RETRY": {
         "id": "R4", "min": 15, "janela_h": 2, "tier": "P2",
         "titulo": "Comunicação do pedal instável",
-        "detalhe": "{n} retransmissões do pedal em 2 h",
+        "detalhe": "{n} retransmissões do pedal em {janela}",
     },
     "PAN_SENSOR_COMM_RETRY": {
         "id": "R5", "min": 10, "janela_h": 4, "tier": "P2",
         "titulo": "Conexão do sensor instável",
-        "detalhe": "{n} retransmissões do sensor em 4 h",
+        "detalhe": "{n} retransmissões do sensor em {janela}",
     },
 }
 
@@ -139,6 +141,22 @@ DRIFT_RULE = {
     "subida_min_a": 0.25,      # e no mínimo +0,25 A acima do normal (evita alarme por ruído)
     "sigma_min_a": 0.03,
 }
+
+# ---------------------------------------------------------------------------
+# Correções aplicadas depois da primeira versão (ver README, "Antes e depois")
+# ---------------------------------------------------------------------------
+# 1. Modo limpeza: retransmissões durante a limpeza não contam para estas regras.
+#    Se a cadeira não avisar o fim da limpeza, o modo expira sozinho.
+SUSPENSOS_NA_LIMPEZA = {"CHR_PEDAL_COMM_RETRY"}
+LIMPEZA_MAX_H = 2
+# 2. Janela em horas de USO (janela_uso_h nas regras acima): noite, domingo e
+#    feriado não "zeram" a contagem de avisos de um equipamento degradando.
+# 3. Canal reserva: com a internet principal fora, o firmware manda só os ERROS
+#    por um segundo caminho (4G/SMS). O resto espera a reconexão.
+# 4. Contra a fadiga de alertas: o técnico diz, ao fechar o chamado, se o
+#    problema era real. Cada notificação mostra o histórico da regra e uma regra
+#    que erra demais deixa de acionar pessoas (vira P3) até alguém revisá-la.
+CONFIABILIDADE = {"min_vereditos": 4, "min_acerto": 0.5}
 
 # Limiar fixo usado SÓ para comparação em evaluate.py (não é usado no sistema)
 LIMIARES_FIXOS_COMPARACAO_A = [3.3, 3.6]

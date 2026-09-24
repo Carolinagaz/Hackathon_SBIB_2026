@@ -2,40 +2,45 @@
   "resumo": {
     "falhas_simuladas": 24,
     "detectadas": 24,
-    "detectadas_antes_da_ligacao": 23,
+    "detectadas_antes_da_ligacao": 24,
     "antecipadas_antes_de_parar": 18,
-    "recall_antes_da_ligacao": 0.9583333333333334,
-    "alertas_que_notificaram": 27,
-    "falsos_alarmes": 2,
-    "precisao": 0.9259259259259259,
+    "recall_antes_da_ligacao": 1.0,
+    "alertas_que_notificaram": 25,
+    "falsos_alarmes": 0,
+    "precisao": 1.0,
     "antecedencia_mediana_h_com_precursor": 41.1,
-    "antecedencia_mediana_min_subitas": 48
+    "antecedencia_mediana_min_subitas": 43
   },
   "funil": {
-    "eventos_recebidos": 37545,
-    "duplicatas_descartadas": 48,
+    "eventos_recebidos": 38402,
+    "duplicatas_descartadas": 53,
     "eventos_perdidos_detectados_pelo_seq": 14,
-    "eventos_que_chegaram_atrasados": 278,
+    "eventos_que_chegaram_atrasados": 276,
     "invalidos": 0,
-    "ruido": 36532,
-    "avisos": 625,
+    "ruido": 37392,
+    "avisos": 617,
     "erros": 340,
-    "ruido_promovido_a_aviso": 451,
-    "alertas": 83,
+    "ruido_promovido_a_aviso": 443,
+    "alertas": 81,
     "alertas_P1": 24,
-    "alertas_P2": 3,
+    "alertas_P2": 1,
     "observacoes_P3": 56,
     "observacoes_P3_que_nunca_notificaram": 56,
-    "notificacoes": 95,
-    "notificacoes_novas": 18,
+    "notificacoes": 47,
+    "notificacoes_novas": 16,
     "escalonamentos": 27,
-    "lembretes": 50,
-    "notificacoes_sem_agrupamento": 965
+    "lembretes": 4,
+    "notificacoes_sem_agrupamento": 957,
+    "retransmissoes_ignoradas_na_limpeza": 41,
+    "erros_pelo_canal_reserva": 4,
+    "vereditos_confirmados": 25,
+    "vereditos_falso_alarme": 0,
+    "ocorrencias_rebaixadas_por_confiabilidade": 0
   },
   "desempenho": {
-    "eventos": 37545,
-    "segundos": 0.299,
-    "eventos_por_segundo": 125597
+    "eventos": 38402,
+    "segundos": 0.301,
+    "eventos_por_segundo": 127723
   },
   "falhas": [
     {
@@ -46,11 +51,11 @@
       "detectada": true,
       "antes_da_ligacao": true,
       "antes_de_parar": true,
-      "antecedencia_h": 2.06,
-      "alerta": "A-0033",
+      "antecedencia_h": 3.06,
+      "alerta": "A-0032",
       "prioridade_inicial": "P2",
       "regra": "R2",
-      "notificado_em": "2026-09-08T11:13:12-03:00"
+      "notificado_em": "2026-09-08T10:12:51-03:00"
     },
     {
       "falha": "F02",
@@ -61,7 +66,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": false,
       "antecedencia_h": 0.52,
-      "alerta": "A-0036",
+      "alerta": "A-0035",
       "prioridade_inicial": "P1",
       "regra": "R1",
       "notificado_em": "2026-09-08T08:37:31-03:00"
@@ -75,7 +80,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 45.37,
-      "alerta": "A-0053",
+      "alerta": "A-0052",
       "prioridade_inicial": "P2",
       "regra": "R2",
       "notificado_em": "2026-09-09T12:16:42-03:00"
@@ -89,7 +94,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 69.11,
-      "alerta": "A-0061",
+      "alerta": "A-0059",
       "prioridade_inicial": "P2",
       "regra": "R2",
       "notificado_em": "2026-09-09T12:28:45-03:00"
@@ -117,7 +122,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": false,
       "antecedencia_h": 0.46,
-      "alerta": "A-0045",
+      "alerta": "A-0044",
       "prioridade_inicial": "P1",
       "regra": "R1",
       "notificado_em": "2026-09-08T11:41:25-03:00"
@@ -131,7 +136,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 42.15,
-      "alerta": "A-0064",
+      "alerta": "A-0062",
       "prioridade_inicial": "P2",
       "regra": "R6",
       "notificado_em": "2026-09-09T18:07:50-03:00"
@@ -145,7 +150,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 72.91,
-      "alerta": "A-0059",
+      "alerta": "A-0057",
       "prioridade_inicial": "P2",
       "regra": "R6",
       "notificado_em": "2026-09-09T09:03:31-03:00"
@@ -159,7 +164,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 47.29,
-      "alerta": "A-0044",
+      "alerta": "A-0043",
       "prioridade_inicial": "P2",
       "regra": "R6",
       "notificado_em": "2026-09-08T10:02:39-03:00"
@@ -173,7 +178,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 24.92,
-      "alerta": "A-0035",
+      "alerta": "A-0034",
       "prioridade_inicial": "P2",
       "regra": "R6",
       "notificado_em": "2026-09-08T08:34:31-03:00"
@@ -187,7 +192,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 25.6,
-      "alerta": "A-0069",
+      "alerta": "A-0067",
       "prioridade_inicial": "P2",
       "regra": "R6",
       "notificado_em": "2026-09-10T09:48:26-03:00"
@@ -201,7 +206,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 40.14,
-      "alerta": "A-0051",
+      "alerta": "A-0050",
       "prioridade_inicial": "P2",
       "regra": "R4",
       "notificado_em": "2026-09-08T16:20:52-03:00"
@@ -215,7 +220,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 1.42,
-      "alerta": "A-0063",
+      "alerta": "A-0061",
       "prioridade_inicial": "P2",
       "regra": "R4",
       "notificado_em": "2026-09-09T15:11:49-03:00"
@@ -229,7 +234,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 94.7,
-      "alerta": "A-0032",
+      "alerta": "A-0031",
       "prioridade_inicial": "P2",
       "regra": "R4",
       "notificado_em": "2026-09-05T10:56:41-03:00"
@@ -243,7 +248,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": false,
       "antecedencia_h": 0.51,
-      "alerta": "A-0031",
+      "alerta": "A-0030",
       "prioridade_inicial": "P1",
       "regra": "R1",
       "notificado_em": "2026-09-05T08:45:04-03:00"
@@ -271,7 +276,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 7.25,
-      "alerta": "A-0066",
+      "alerta": "A-0064",
       "prioridade_inicial": "P2",
       "regra": "R3",
       "notificado_em": "2026-09-11T10:02:48-03:00"
@@ -285,7 +290,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 63.68,
-      "alerta": "A-0048",
+      "alerta": "A-0047",
       "prioridade_inicial": "P2",
       "regra": "R3",
       "notificado_em": "2026-09-08T17:59:27-03:00"
@@ -299,7 +304,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 26.45,
-      "alerta": "A-0052",
+      "alerta": "A-0051",
       "prioridade_inicial": "P2",
       "regra": "R3",
       "notificado_em": "2026-09-09T11:46:56-03:00"
@@ -313,7 +318,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 24.39,
-      "alerta": "A-0055",
+      "alerta": "A-0053",
       "prioridade_inicial": "P2",
       "regra": "R3",
       "notificado_em": "2026-09-09T16:09:07-03:00"
@@ -327,7 +332,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 45.91,
-      "alerta": "A-0047",
+      "alerta": "A-0046",
       "prioridade_inicial": "P2",
       "regra": "R5",
       "notificado_em": "2026-09-08T12:19:46-03:00"
@@ -341,7 +346,7 @@
       "antes_da_ligacao": true,
       "antes_de_parar": true,
       "antecedencia_h": 48.05,
-      "alerta": "A-0042",
+      "alerta": "A-0041",
       "prioridade_inicial": "P2",
       "regra": "R5",
       "notificado_em": "2026-09-08T09:45:42-03:00"
@@ -352,13 +357,13 @@
       "device_id": "PAN-0008",
       "com_precursor": false,
       "detectada": true,
-      "antes_da_ligacao": false,
+      "antes_da_ligacao": true,
       "antes_de_parar": false,
-      "antecedencia_h": -15.48,
-      "alerta": "A-0019",
+      "antecedencia_h": 0.64,
+      "alerta": "A-0018",
       "prioridade_inicial": "P1",
       "regra": "R1",
-      "notificado_em": "2026-09-04T08:24:19-03:00"
+      "notificado_em": "2026-09-03T16:17:09-03:00"
     },
     {
       "falha": "F24",
@@ -369,34 +374,49 @@
       "antes_da_ligacao": true,
       "antes_de_parar": false,
       "antecedencia_h": 0.88,
-      "alerta": "A-0041",
+      "alerta": "A-0040",
       "prioridade_inicial": "P1",
       "regra": "R1",
       "notificado_em": "2026-09-08T09:08:55-03:00"
     }
   ],
-  "falsos_alarmes": [
+  "falsos_alarmes": [],
+  "confiabilidade_das_regras": [
     {
-      "alerta": "A-0028",
-      "device_id": "CAD-0032",
-      "familia": "PEDAL",
-      "prioridade": "P2",
-      "regra": "R4",
-      "titulo": "Comunicação do pedal instável",
-      "detalhe": "15 retransmissões do pedal em 2 h",
-      "notificado_em": "2026-09-04T17:48:21-03:00",
-      "explicacao": "limpeza do pedal"
+      "regra": "R1",
+      "confirmados": 6,
+      "vereditos": 6,
+      "em_revisao": false
     },
     {
-      "alerta": "A-0054",
-      "device_id": "CAD-0037",
-      "familia": "PEDAL",
-      "prioridade": "P2",
+      "regra": "R2",
+      "confirmados": 4,
+      "vereditos": 4,
+      "em_revisao": false
+    },
+    {
+      "regra": "R3",
+      "confirmados": 4,
+      "vereditos": 4,
+      "em_revisao": false
+    },
+    {
       "regra": "R4",
-      "titulo": "Comunicação do pedal instável",
-      "detalhe": "15 retransmissões do pedal em 2 h",
-      "notificado_em": "2026-09-08T17:12:26-03:00",
-      "explicacao": "limpeza do pedal; corrente naturalmente alta"
+      "confirmados": 3,
+      "vereditos": 3,
+      "em_revisao": false
+    },
+    {
+      "regra": "R5",
+      "confirmados": 3,
+      "vereditos": 3,
+      "em_revisao": false
+    },
+    {
+      "regra": "R6",
+      "confirmados": 5,
+      "vereditos": 5,
+      "em_revisao": false
     }
   ],
   "frota": {
@@ -427,6 +447,30 @@
       "avisadas_antes_de_travar": 5,
       "antecedencia_mediana_h": 42.1,
       "falsos_alarmes": 0
+    }
+  ],
+  "antes_e_depois": [
+    {
+      "versao": "Primeira versão",
+      "falsos_alarmes": 2,
+      "precisao": 0.9259259259259259,
+      "antes_de_parar": 18,
+      "antes_da_ligacao": 23,
+      "falhas": 24,
+      "antecedencia_mediana_h": 41.1,
+      "notificacoes": 95,
+      "lembretes": 50
+    },
+    {
+      "versao": "Com as correções",
+      "falsos_alarmes": 0,
+      "precisao": 1.0,
+      "antes_de_parar": 18,
+      "antes_da_ligacao": 24,
+      "falhas": 24,
+      "antecedencia_mediana_h": 41.1,
+      "notificacoes": 47,
+      "lembretes": 4
     }
   ]
 }

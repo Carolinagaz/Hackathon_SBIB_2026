@@ -13,9 +13,15 @@ horário de CHEGADA (received_at), porque é quando o suporte consegue agir.
 
 Todo o estado é POR EQUIPAMENTO: em produção, o fluxo pode ser dividido por
 device_id entre várias cópias deste motor rodando em paralelo.
+
+correcoes=True liga o que foi acrescentado depois da primeira versão: modo
+limpeza, janelas em horas de uso, canal reserva e o retorno do técnico
+(confiabilidade de cada regra). correcoes=False reproduz a primeira versão,
+para comparação.
 """
 from __future__ import annotations
 
+import heapq
 import math
 from bisect import bisect_left, bisect_right, insort
 from collections import Counter, defaultdict
@@ -23,8 +29,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from statistics import mean, pstdev
 
-from catalog import (ACAO_P3, ACOES, AVISO, DRIFT_RULE, ENCERRA_APOS_USO_H, ERRO, EVENT_CATALOG,
-                     NOME_EQUIP, RANK, RUIDO, TIERS, WINDOW_RULES)
+from catalog import (ACAO_P3, ACOES, AVISO, CONFIABILIDADE, DRIFT_RULE, ENCERRA_APOS_USO_H, ERRO, EVENT_CATALOG,
+                     LIMPEZA_MAX_H, NOME_EQUIP, RANK, RUIDO, SUSPENSOS_NA_LIMPEZA, TIERS, WINDOW_RULES)
 
 CAMPOS_OBRIGATORIOS = ("v", "device_id", "seq", "ts", "code")
 
@@ -60,6 +66,7 @@ class EstadoEquipamento:
     mu: float | None = None
     sigma: float | None = None
     ewma: float | None = None
+    limpeza_desde: datetime | None = None           # modo limpeza ativo desde
 
 
 @dataclass
@@ -86,6 +93,8 @@ class Alerta:
     ultima_notificacao: datetime | None = None
     n_notificacoes: int = 0
     encerrado_em: datetime | None = None
+    regra_notificada: str | None = None                # regra que fez o alerta acionar alguém
+    veredito: str | None = None                        # retorno do técnico: confirmado / falso alarme
 
     @property
     def score(self):
@@ -94,16 +103,18 @@ class Alerta:
 
 
 class Motor:
-    def __init__(self, frota, modo_motor="desvio", limite_fixo_a=None, guardar_log=True):
+    def __init__(self, frota, modo_motor="desvio", limite_fixo_a=None, guardar_log=True, correcoes=True, tecnico=None):
         """modo_motor='desvio' usa a regra R6 (normal de cada cadeira).
-        modo_motor='fixo' troca a R6 por um limiar fixo, só para comparação."""
+        modo_motor='fixo' troca a R6 por um limiar fixo, só para comparação.
+        tecnico: quem devolve o veredito do chamado (em produção, o sistema de
+        chamados; aqui, evaluate.TecnicoSimulado). None = sem retorno."""
         self.equip = {e["device_id"]: e for e in frota["equipamentos"]}
         self.clinicas = {c["clinic_id"]: c for c in frota["clinicas"]}
         self.modo_motor = modo_motor
         self.limite_fixo_a = limite_fixo_a
         self.guardar_log = guardar_log
         self.estado = defaultdict(EstadoEquipamento)
-        self.vistos = set()
+        self.vistos = {}
         self.janelas = defaultdict(list)
         self.abertos = {}                      # (device_id, familia) -> Alerta aberto
         self.abertos_do_equip = defaultdict(set)
@@ -111,6 +122,10 @@ class Motor:
         self.notificacoes = []
         self.contadores = Counter()
         self.log = []
+        self.correcoes = correcoes
+        self.tecnico = tecnico if correcoes else None
+        self.pendentes = []                    # vereditos agendados: (quando, n, alerta)
+        self.confiab = defaultdict(lambda: {"acertos": 0, "vereditos": 0})
 
     # ------------------------------------------------------------------ fluxo
     def processar_todos(self, eventos):
@@ -131,19 +146,32 @@ class Motor:
             r["efeito"] = f"descartado: faltam os campos {', '.join(faltando)}"
             return self._registrar(r)
 
-        chave = (ev["device_id"], ev["seq"])
-        if chave in self.vistos:
-            c["duplicados"] += 1
-            r["efeito"] = "duplicata descartada (mesmo device_id + seq já processado)"
-            return self._registrar(r)
-        self.vistos.add(chave)
-
         ts = parse_ts(ev["ts"])
         agora = parse_ts(ev["received_at"]) if ev.get("received_at") else ts
         dev = ev["device_id"]
         st = self.estado[dev]
-        self._atualizar_estado(st, ev, ts, agora)
-        self._encerrar_inativos(dev, st, agora)
+        reserva = ev.get("canal") == "reserva"
+        if reserva and not self.correcoes:
+            c["canal_reserva_ignorado"] += 1
+            r["efeito"] = "ignorado: a primeira versão não tinha canal reserva"
+            return self._registrar(r)
+        self._aplicar_vereditos(agora)
+
+        chave = (ev["device_id"], ev["seq"])
+        if chave in self.vistos:
+            c["duplicados"] += 1
+            if self.vistos[chave] == "reserva":  # já chegou pelo canal reserva; agora veio o buffer
+                self.vistos[chave] = "ok"
+                st.ultimo_seq = max(st.ultimo_seq or ev["seq"], ev["seq"])
+            r["efeito"] = "duplicata descartada (mesmo device_id + seq já processado)"
+            return self._registrar(r)
+        self.vistos[chave] = "reserva" if reserva else "ok"
+
+        if reserva:
+            c["via_canal_reserva"] += 1   # fora de banda: não mexe na ordem nem no tempo de uso
+        else:
+            self._atualizar_estado(st, ev, ts, agora)
+            self._encerrar_inativos(dev, st, agora)
 
         code = ev["code"]
         info = EVENT_CATALOG.get(code)
@@ -157,6 +185,11 @@ class Motor:
         base, fam = info["base"], info["familia"]
         r.update(base=base, categoria=base, efeito="armazenado")
         valor = ev.get("value")
+        if self.correcoes and code == "CHR_CLEANING_START":
+            st.limpeza_desde = ts
+            r["regra"] = "modo limpeza: retransmissões do pedal não contam até o fim da limpeza"
+        elif self.correcoes and code == "CHR_CLEANING_END":
+            st.limpeza_desde = None
 
         if base == ERRO:
             r["regra"] = "R1: evento de erro"
@@ -165,10 +198,10 @@ class Motor:
 
         elif base == AVISO:
             regra = WINDOW_RULES.get(code)
-            n = self._contar_janela(dev, code, ts, regra["janela_h"]) if regra else 1
+            n, janela = self._contar_janela(dev, code, ts, regra) if regra else (1, "")
             if regra and n >= regra["min"]:
-                r["regra"] = f"{regra['id']}: {n} eventos em {regra['janela_h']} h"
-                detalhe = regra["detalhe"].format(n=n, valor=num(valor) if valor is not None else "-")
+                r["regra"] = f"{regra['id']}: {n} eventos em {janela}"
+                detalhe = regra["detalhe"].format(n=n, janela=janela, valor=num(valor) if valor is not None else "-")
                 self._acionar(r, ev, ts, agora, fam, regra["tier"], "Padrão preditivo", regra["id"],
                               regra["titulo"], detalhe)
             else:
@@ -179,14 +212,19 @@ class Motor:
 
         else:  # RUÍDO: só vira alerta se formar padrão
             regra = WINDOW_RULES.get(code)
-            if regra:
-                n = self._contar_janela(dev, code, ts, regra["janela_h"])
+            em_limpeza = (self.correcoes and code in SUSPENSOS_NA_LIMPEZA and st.limpeza_desde is not None
+                          and ts - st.limpeza_desde <= timedelta(hours=LIMPEZA_MAX_H))
+            if regra and em_limpeza:
+                c["ignorados_na_limpeza"] += 1
+                r["regra"] = f"durante o modo limpeza: não conta para {regra['id']}"
+            elif regra:
+                n, janela = self._contar_janela(dev, code, ts, regra)
                 if n >= regra["min"]:
                     r["categoria"] = AVISO
                     c["promovidos"] += 1
-                    r["regra"] = f"{regra['id']}: {n} eventos em {regra['janela_h']} h (ruído virou padrão)"
+                    r["regra"] = f"{regra['id']}: {n} eventos em {janela} (ruído virou padrão)"
                     self._acionar(r, ev, ts, agora, fam, regra["tier"], "Padrão preditivo", regra["id"],
-                                  regra["titulo"], regra["detalhe"].format(n=n, valor="-"))
+                                  regra["titulo"], regra["detalhe"].format(n=n, janela=janela, valor="-"))
             elif code == DRIFT_RULE["code"] and valor is not None:
                 desvio, detalhe = self._desvio_motor(st, float(valor))
                 if desvio:
@@ -226,14 +264,22 @@ class Motor:
                 del self.abertos[(dev, fam)]
                 self.abertos_do_equip[dev].discard(fam)
 
-    def _contar_janela(self, dev, code, ts, horas):
+    def _contar_janela(self, dev, code, ts, regra):
+        """Conta eventos do código na janela. Com as correções e janela_uso_h na
+        regra, a janela é em horas de USO (o relógio só anda com o equipamento ligado)."""
         lista = self.janelas[(dev, code)]
-        insort(lista, ts)
-        ini = bisect_left(lista, ts - timedelta(hours=horas))
-        n = bisect_right(lista, ts) - ini
+        if self.correcoes and "janela_uso_h" in regra:
+            x, largura = self.estado[dev].uso_s, regra["janela_uso_h"] * 3600
+            texto = f"{regra['janela_uso_h']} h de uso"
+        else:
+            x, largura = ts, timedelta(hours=regra["janela_h"])
+            texto = f"{regra['janela_h']} h"
+        insort(lista, x)
+        ini = bisect_left(lista, x - largura)
+        n = bisect_right(lista, x) - ini
         if ini > 200:  # o que já saiu da janela não volta (eventos de um equipamento chegam em ordem)
             del lista[:ini]
-        return n
+        return n, texto
 
     def _desvio_motor(self, st, valor):
         r = DRIFT_RULE
@@ -262,7 +308,17 @@ class Motor:
         return {"em": agora, "evento": texto, "tier": a.tier, "tipo": a.tipo, "titulo": a.titulo,
                 "regra": a.regra, "detalhe": a.detalhe, "acao": a.acao, "gatilho": ev}
 
+    def _em_revisao(self, regra):
+        c = self.confiab.get(regra)
+        return (c is not None and c["vereditos"] >= CONFIABILIDADE["min_vereditos"]
+                and c["acertos"] / c["vereditos"] < CONFIABILIDADE["min_acerto"])
+
     def _acionar(self, r, ev, ts, agora, fam, tier, tipo, regra, titulo, detalhe):
+        if self.correcoes and tier == "P2" and regra != "R1" and self._em_revisao(regra):
+            c = self.confiab[regra]
+            self.contadores["rebaixados_por_confiabilidade"] += 1
+            tier, tipo = "P3", "Regra em revisão"
+            detalhe += f" · regra {regra} em revisão: {c['acertos']} de {c['vereditos']} confirmados em campo"
         dev = ev["device_id"]
         st = self.estado[dev]
         chave = (dev, fam)
@@ -300,7 +356,8 @@ class Motor:
                 if RANK[tier] == RANK[a.tier]:
                     a.detalhe = detalhe
                 silencio = TIERS[a.tier]["silencio_h"]
-                if (TIERS[a.tier]["notifica"] and a.ultima_notificacao is not None
+                ja_cuidando = self.correcoes and a.veredito == "confirmado"
+                if (TIERS[a.tier]["notifica"] and a.ultima_notificacao is not None and not ja_cuidando
                         and agora - a.ultima_notificacao >= timedelta(hours=silencio)):
                     self._notificar(a, agora, ts, f"lembrete: continua ocorrendo ({len(a.ocorrencias)} ocorrências)", r["i"])
                     r["efeito"] = f"agrupado em {a.id} + lembrete (passou o tempo de silêncio de {silencio} h)"
@@ -314,11 +371,15 @@ class Motor:
         cl = self.clinicas.get(a.clinic_id, {})
         nome_eq = f"{NOME_EQUIP.get(eq.get('tipo'), 'Equipamento')} {a.device_id}"
         para = t["quem"] + (f" ({cl.get('cidade', '?')})" if a.tier == "P1" else "")
+        historico = ""
+        c = self.confiab.get(a.regra)
+        if self.correcoes and c and c["vereditos"]:
+            historico = f" Histórico da regra {a.regra}: {c['acertos']} de {c['vereditos']} alertas confirmados em campo."
         n = {
             "id": f"N-{len(self.notificacoes) + 1:04d}", "alerta": a.id, "em": agora, "tier": a.tier,
             "motivo": motivo, "para": para, "canal": t["canal"], "prazo": t["prazo"], "evento_i": i_evento,
             "mensagem": (f"[{a.tier}] {cl.get('nome', '?')} ({cl.get('cidade', '?')}, porte {cl.get('porte', '?')}) · "
-                         f"{nome_eq}: {a.titulo}. {a.detalhe}. Ação sugerida: {a.acao}"),
+                         f"{nome_eq}: {a.titulo}. {a.detalhe}. Ação sugerida: {a.acao}{historico}"),
         }
         if a.tier == "P1" and not motivo.startswith("lembrete"):
             n["aviso_consultorio"] = (f"WhatsApp para {cl.get('nome', 'o consultório')}: \"Identificamos um problema "
@@ -329,6 +390,31 @@ class Motor:
         if a.primeira_notificacao is None:
             a.primeira_notificacao = agora
             a.primeira_notificacao_ts_evento = ts_evento
+            a.regra_notificada = a.regra
+            if self.tecnico is not None:
+                real, quando = self.tecnico.veredito(a)
+                heapq.heappush(self.pendentes, (quando, len(self.notificacoes), a, real))
+
+    def _aplicar_vereditos(self, agora):
+        """Retorno do técnico ao fechar o chamado: alimenta a confiabilidade da regra."""
+        while self.pendentes and self.pendentes[0][0] <= agora:
+            quando, _, a, real = heapq.heappop(self.pendentes)
+            c = self.confiab[a.regra_notificada]
+            c["vereditos"] += 1
+            c["acertos"] += int(real)
+            a.veredito = "confirmado" if real else "falso alarme"
+            self.contadores["vereditos_" + ("confirmados" if real else "falsos")] += 1
+            if real:
+                a.historico.append({"em": quando, "evento": "técnico confirmou: problema real; lembretes suspensos",
+                                    "tier": None})
+            else:
+                a.historico.append({"em": quando, "evento": "técnico marcou falso alarme; alerta encerrado",
+                                    "tier": None})
+                chave = (a.device_id, a.familia)
+                if self.abertos.get(chave) is a:
+                    a.encerrado_em = quando
+                    del self.abertos[chave]
+                    self.abertos_do_equip[a.device_id].discard(a.familia)
 
     def _registrar(self, r):
         if self.guardar_log:
@@ -349,6 +435,7 @@ def alerta_para_dict(a):
         "aberto_em": _iso(a.aberto_em), "ultima_ocorrencia": _iso(a.ultima_ocorrencia),
         "encerrado_em": _iso(a.encerrado_em), "ocorrencias": len(a.ocorrencias),
         "notificacoes": a.n_notificacoes, "primeira_notificacao": _iso(a.primeira_notificacao),
+        "veredito_tecnico": a.veredito,
         "historico": [{k: _iso(v) for k, v in h.items() if k != "gatilho"} for h in a.historico],
         "evento_gatilho": a.evento_gatilho,
     }

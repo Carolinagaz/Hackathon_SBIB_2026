@@ -18,7 +18,7 @@ from pathlib import Path
 import simulator
 from catalog import NOME_EQUIP, TIERS
 from engine import Motor, alerta_para_dict, notificacao_para_dict
-from evaluate import avaliar, comparar_regra_motor, funil
+from evaluate import TecnicoSimulado, avaliar, comparar_regra_motor, comparar_versoes, confiabilidade, funil
 
 BASE = Path(__file__).resolve().parent
 
@@ -39,7 +39,7 @@ def rodar_tudo(pasta_dados=None, regerar=False, n_clinicas=30, dias=14, seed=42,
     frota, eventos, gabarito = carregar(pasta)
 
     t0 = time.perf_counter()
-    motor = Motor(frota, guardar_log=guardar_log).processar_todos(eventos)
+    motor = Motor(frota, guardar_log=guardar_log, tecnico=TecnicoSimulado(gabarito)).processar_todos(eventos)
     segundos = time.perf_counter() - t0
 
     av = avaliar(motor, gabarito)
@@ -50,11 +50,13 @@ def rodar_tudo(pasta_dados=None, regerar=False, n_clinicas=30, dias=14, seed=42,
                        "eventos_por_segundo": round(len(eventos) / segundos) if segundos else None},
         "falhas": av["falhas"],
         "falsos_alarmes": av["falsos_alarmes"],
+        "confiabilidade_das_regras": confiabilidade(motor),
         "frota": {"clinicas": len(frota["clinicas"]), "equipamentos": len(frota["equipamentos"]),
                   "inicio": gabarito["inicio"], "fim": gabarito["fim"], "seed": gabarito.get("seed")},
     }
     if comparar:
         metricas["comparacao_regra_motor"] = comparar_regra_motor(eventos, frota, gabarito)
+        metricas["antes_e_depois"] = comparar_versoes(eventos, frota, gabarito, motor)
     return {"frota": frota, "eventos": eventos, "gabarito": gabarito, "motor": motor, "metricas": metricas}
 
 
@@ -120,6 +122,17 @@ def imprimir(res):
         for x in m["falsos_alarmes"]:
             print(f"  {x['alerta']} {x['device_id']} [{x['prioridade']}/{x['regra']}] {x['titulo']}: {x['detalhe']} "
                   f"-> {x['explicacao']}")
+
+    if "antes_e_depois" in m:
+        print("\nANTES E DEPOIS DAS CORREÇÕES (mesmos logs)")
+        for v in m["antes_e_depois"]:
+            print(f"  {v['versao']:<18} falsos alarmes: {v['falsos_alarmes']} | precisão: {_pct(v['precisao'])} | "
+                  f"antes de parar: {v['antes_de_parar']}/{v['falhas']} | antes da ligação: {v['antes_da_ligacao']}/{v['falhas']} | "
+                  f"antecedência mediana: {v['antecedencia_mediana_h']} h | notificações: {v['notificacoes']} "
+                  f"({v['lembretes']} lembretes)")
+        print(f"  Modo limpeza: {f['retransmissoes_ignoradas_na_limpeza']} retransmissões ignoradas | "
+              f"canal reserva: {f['erros_pelo_canal_reserva']} erros entregues durante quedas | "
+              f"retorno dos técnicos: {f['vereditos_confirmados']} confirmados, {f['vereditos_falso_alarme']} falsos")
 
     if "comparacao_regra_motor" in m:
         print("\nMOTOR DA CADEIRA: limiar fixo x desvio do normal de cada cadeira")

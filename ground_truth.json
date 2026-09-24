@@ -401,13 +401,13 @@
     {
       "device_id": "CAD-0037",
       "tipo": "limpeza do pedal",
-      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real.",
+      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real (a cadeira avisa o modo limpeza).",
       "quando": "2026-09-08T16:50:03-03:00"
     },
     {
       "device_id": "CAD-0032",
       "tipo": "limpeza do pedal",
-      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real.",
+      "descricao": "Pedal desconectado e reconectado na limpeza do fim do dia: rajada de retransmissões sem defeito real (a cadeira avisa o modo limpeza).",
       "quando": "2026-09-04T17:32:50-03:00"
     },
     {

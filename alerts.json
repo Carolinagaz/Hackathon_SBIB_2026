@@ -18,6 +18,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T08:07:24-03:00",
@@ -68,6 +69,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T08:15:14-03:00",
@@ -118,6 +120,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T08:23:40-03:00",
@@ -168,6 +171,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T09:30:27-03:00",
@@ -218,6 +222,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T11:50:33-03:00",
@@ -268,6 +273,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-01T18:40:50-03:00",
@@ -318,6 +324,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T07:59:50-03:00",
@@ -368,6 +375,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T08:11:10-03:00",
@@ -390,7 +398,7 @@
       "device_id": "CAD-0068",
       "model": "C-200",
       "fw": "3.1.2",
-      "seq": 22344,
+      "seq": 22346,
       "ts": "2026-09-02T08:11:06-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -418,6 +426,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T09:51:19-03:00",
@@ -468,6 +477,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T11:24:58-03:00",
@@ -518,6 +528,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T12:30:39-03:00",
@@ -568,6 +579,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-02T12:36:15-03:00",
@@ -618,6 +630,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-03T08:47:46-03:00",
@@ -668,6 +681,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-03T08:53:19-03:00",
@@ -718,6 +732,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-03T08:53:46-03:00",
@@ -768,6 +783,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-03T14:57:15-03:00",
@@ -818,6 +834,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-03T15:09:11-03:00",
@@ -851,6 +868,61 @@
   },
   {
     "id": "A-0018",
+    "device_id": "PAN-0008",
+    "clinic_id": "CLI-012",
+    "familia": "GERADOR",
+    "prioridade": "P1",
+    "score": 326,
+    "tipo": "Falha ativa",
+    "titulo": "Falha no gerador de alta tensão",
+    "regra": "R1",
+    "detalhe": "Falha no gerador de alta tensão",
+    "acao_sugerida": "Manter o equipamento desligado. Visita técnica prioritária para o gerador de alta tensão.",
+    "pacientes_dia": 26,
+    "aberto_em": "2026-09-03T16:17:09-03:00",
+    "ultima_ocorrencia": "2026-09-04T14:47:32-03:00",
+    "encerrado_em": "2026-09-08T10:20:21-03:00",
+    "ocorrencias": 16,
+    "notificacoes": 1,
+    "primeira_notificacao": "2026-09-03T16:17:09-03:00",
+    "veredito_tecnico": "confirmado",
+    "historico": [
+      {
+        "em": "2026-09-03T16:17:09-03:00",
+        "evento": "aberto como P1",
+        "tier": "P1",
+        "tipo": "Falha ativa",
+        "titulo": "Falha no gerador de alta tensão",
+        "regra": "R1",
+        "detalhe": "Falha no gerador de alta tensão",
+        "acao": "Manter o equipamento desligado. Visita técnica prioritária para o gerador de alta tensão."
+      },
+      {
+        "em": "2026-09-04T01:24:36-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
+        "em": "2026-09-08T10:20:21-03:00",
+        "evento": "encerrado: 8 h de uso sem nova ocorrência",
+        "tier": null
+      }
+    ],
+    "evento_gatilho": {
+      "v": 1,
+      "device_id": "PAN-0008",
+      "model": "PX-1",
+      "fw": "5.1.0",
+      "seq": 54902,
+      "ts": "2026-09-03T16:16:31-03:00",
+      "code": "PAN_GENERATOR_FAULT",
+      "lvl": "ERROR",
+      "canal": "reserva",
+      "received_at": "2026-09-03T16:17:09.092-03:00"
+    }
+  },
+  {
+    "id": "A-0019",
     "device_id": "CAD-0075",
     "clinic_id": "CLI-027",
     "familia": "AR",
@@ -868,6 +940,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T08:18:18-03:00",
@@ -890,61 +963,13 @@
       "device_id": "CAD-0075",
       "model": "C-200",
       "fw": "3.1.2",
-      "seq": 1373,
+      "seq": 1375,
       "ts": "2026-09-04T08:18:16-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
       "value": 5.1,
       "unit": "bar",
       "received_at": "2026-09-04T08:18:18.489-03:00"
-    }
-  },
-  {
-    "id": "A-0019",
-    "device_id": "PAN-0008",
-    "clinic_id": "CLI-012",
-    "familia": "GERADOR",
-    "prioridade": "P1",
-    "score": 326,
-    "tipo": "Falha ativa",
-    "titulo": "Falha no gerador de alta tensão",
-    "regra": "R1",
-    "detalhe": "Falha no gerador de alta tensão",
-    "acao_sugerida": "Manter o equipamento desligado. Visita técnica prioritária para o gerador de alta tensão.",
-    "pacientes_dia": 26,
-    "aberto_em": "2026-09-04T08:24:19-03:00",
-    "ultima_ocorrencia": "2026-09-04T14:47:32-03:00",
-    "encerrado_em": "2026-09-08T10:20:21-03:00",
-    "ocorrencias": 16,
-    "notificacoes": 2,
-    "primeira_notificacao": "2026-09-04T08:24:19-03:00",
-    "historico": [
-      {
-        "em": "2026-09-04T08:24:19-03:00",
-        "evento": "aberto como P1",
-        "tier": "P1",
-        "tipo": "Falha ativa",
-        "titulo": "Falha no gerador de alta tensão",
-        "regra": "R1",
-        "detalhe": "Falha no gerador de alta tensão",
-        "acao": "Manter o equipamento desligado. Visita técnica prioritária para o gerador de alta tensão."
-      },
-      {
-        "em": "2026-09-08T10:20:21-03:00",
-        "evento": "encerrado: 8 h de uso sem nova ocorrência",
-        "tier": null
-      }
-    ],
-    "evento_gatilho": {
-      "v": 1,
-      "device_id": "PAN-0008",
-      "model": "PX-1",
-      "fw": "5.1.0",
-      "seq": 54902,
-      "ts": "2026-09-03T16:16:31-03:00",
-      "code": "PAN_GENERATOR_FAULT",
-      "lvl": "ERROR",
-      "received_at": "2026-09-04T08:24:19.862-03:00"
     }
   },
   {
@@ -966,6 +991,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T08:30:49-03:00",
@@ -988,7 +1014,7 @@
       "device_id": "CAD-0025",
       "model": "C-100",
       "fw": "3.1.0",
-      "seq": 26181,
+      "seq": 26183,
       "ts": "2026-09-04T08:30:47-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -1014,8 +1040,9 @@
     "ultima_ocorrencia": "2026-09-04T18:17:13-03:00",
     "encerrado_em": "2026-09-08T10:51:05-03:00",
     "ocorrencias": 16,
-    "notificacoes": 3,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-04T08:56:34-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-04T08:56:34-03:00",
@@ -1028,6 +1055,11 @@
         "acao": "Orientar a reconectar o cabo do pedal. Se não resolver, enviar técnico com pedal reserva."
       },
       {
+        "em": "2026-09-04T14:15:42-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-08T10:51:05-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -1038,7 +1070,7 @@
       "device_id": "CAD-0079",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 55332,
+      "seq": 55336,
       "ts": "2026-09-04T08:56:33-03:00",
       "code": "CHR_PEDAL_COMM_LOST",
       "lvl": "ERROR",
@@ -1064,6 +1096,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T11:22:33-03:00",
@@ -1112,8 +1145,9 @@
     "ultima_ocorrencia": "2026-09-08T16:53:27-03:00",
     "encerrado_em": "2026-09-09T16:21:15-03:00",
     "ocorrencias": 19,
-    "notificacoes": 3,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-04T17:46:36-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-04T11:46:26-03:00",
@@ -1132,8 +1166,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Compressor perdendo rendimento",
         "regra": "R2",
-        "detalhe": "3 avisos de pressão baixa em 24 h (último: 5,5 bar)",
+        "detalhe": "3 avisos de pressão baixa em 10 h de uso (último: 5,5 bar)",
         "acao": "Ligar para o consultório: pedir a drenagem do reservatório do compressor e checar vazamentos audíveis. Se os avisos continuarem, agendar visita preventiva com kit de reparo do compressor."
+      },
+      {
+        "em": "2026-09-05T10:05:50-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-08T08:57:40-03:00",
@@ -1156,7 +1195,7 @@
       "device_id": "CAD-0036",
       "model": "C-100",
       "fw": "3.1.0",
-      "seq": 76631,
+      "seq": 76639,
       "ts": "2026-09-08T08:57:37-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -1184,6 +1223,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T13:50:38-03:00",
@@ -1234,6 +1274,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T15:25:43-03:00",
@@ -1284,6 +1325,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T16:15:32-03:00",
@@ -1334,6 +1376,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-04T16:24:37-03:00",
@@ -1367,54 +1410,6 @@
   },
   {
     "id": "A-0028",
-    "device_id": "CAD-0032",
-    "clinic_id": "CLI-010",
-    "familia": "PEDAL",
-    "prioridade": "P2",
-    "score": 211,
-    "tipo": "Padrão preditivo",
-    "titulo": "Comunicação do pedal instável",
-    "regra": "R4",
-    "detalhe": "21 retransmissões do pedal em 2 h",
-    "acao_sugerida": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição.",
-    "pacientes_dia": 11,
-    "aberto_em": "2026-09-04T17:48:21-03:00",
-    "ultima_ocorrencia": "2026-09-04T17:54:35-03:00",
-    "encerrado_em": "2026-09-08T12:31:48-03:00",
-    "ocorrencias": 7,
-    "notificacoes": 1,
-    "primeira_notificacao": "2026-09-04T17:48:21-03:00",
-    "historico": [
-      {
-        "em": "2026-09-04T17:48:21-03:00",
-        "evento": "aberto como P2",
-        "tier": "P2",
-        "tipo": "Padrão preditivo",
-        "titulo": "Comunicação do pedal instável",
-        "regra": "R4",
-        "detalhe": "15 retransmissões do pedal em 2 h",
-        "acao": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição."
-      },
-      {
-        "em": "2026-09-08T12:31:48-03:00",
-        "evento": "encerrado: 8 h de uso sem nova ocorrência",
-        "tier": null
-      }
-    ],
-    "evento_gatilho": {
-      "v": 1,
-      "device_id": "CAD-0032",
-      "model": "C-200",
-      "fw": "3.1.0",
-      "seq": 88014,
-      "ts": "2026-09-04T17:48:19-03:00",
-      "code": "CHR_PEDAL_COMM_RETRY",
-      "lvl": "WARN",
-      "received_at": "2026-09-04T17:48:21.172-03:00"
-    }
-  },
-  {
-    "id": "A-0029",
     "device_id": "PAN-0008",
     "clinic_id": "CLI-012",
     "familia": "TUBO",
@@ -1432,6 +1427,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-05T08:32:29-03:00",
@@ -1464,7 +1460,7 @@
     }
   },
   {
-    "id": "A-0030",
+    "id": "A-0029",
     "device_id": "CAD-0033",
     "clinic_id": "CLI-010",
     "familia": "AR",
@@ -1482,6 +1478,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-05T08:33:00-03:00",
@@ -1504,7 +1501,7 @@
       "device_id": "CAD-0033",
       "model": "C-100",
       "fw": "3.2.0",
-      "seq": 64291,
+      "seq": 64293,
       "ts": "2026-09-05T08:32:56-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -1514,7 +1511,7 @@
     }
   },
   {
-    "id": "A-0031",
+    "id": "A-0030",
     "device_id": "CAD-0046",
     "clinic_id": "CLI-013",
     "familia": "PEDAL",
@@ -1530,8 +1527,9 @@
     "ultima_ocorrencia": "2026-09-05T12:50:14-03:00",
     "encerrado_em": "2026-09-08T15:58:15-03:00",
     "ocorrencias": 9,
-    "notificacoes": 2,
+    "notificacoes": 1,
     "primeira_notificacao": "2026-09-05T08:45:04-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-05T08:45:04-03:00",
@@ -1544,6 +1542,11 @@
         "acao": "Orientar a reconectar o cabo do pedal. Se não resolver, enviar técnico com pedal reserva."
       },
       {
+        "em": "2026-09-05T12:20:41-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-08T15:58:15-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -1554,7 +1557,7 @@
       "device_id": "CAD-0046",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 6879,
+      "seq": 6881,
       "ts": "2026-09-05T08:45:03-03:00",
       "code": "CHR_PEDAL_COMM_LOST",
       "lvl": "ERROR",
@@ -1562,7 +1565,7 @@
     }
   },
   {
-    "id": "A-0032",
+    "id": "A-0031",
     "device_id": "CAD-0059",
     "clinic_id": "CLI-018",
     "familia": "PEDAL",
@@ -1578,8 +1581,9 @@
     "ultima_ocorrencia": "2026-09-09T18:29:33-03:00",
     "encerrado_em": "2026-09-10T16:22:59-03:00",
     "ocorrencias": 30,
-    "notificacoes": 4,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-05T10:56:41-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-05T10:56:41-03:00",
@@ -1590,6 +1594,11 @@
         "regra": "R4",
         "detalhe": "15 retransmissões do pedal em 2 h",
         "acao": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição."
+      },
+      {
+        "em": "2026-09-06T00:44:03-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-09T09:12:04-03:00",
@@ -1612,7 +1621,7 @@
       "device_id": "CAD-0059",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 58808,
+      "seq": 58812,
       "ts": "2026-09-09T09:12:02-03:00",
       "code": "CHR_PEDAL_COMM_LOST",
       "lvl": "ERROR",
@@ -1620,7 +1629,7 @@
     }
   },
   {
-    "id": "A-0033",
+    "id": "A-0032",
     "device_id": "CAD-0029",
     "clinic_id": "CLI-008",
     "familia": "AR",
@@ -1636,8 +1645,9 @@
     "ultima_ocorrencia": "2026-09-08T18:16:34-03:00",
     "encerrado_em": "2026-09-09T15:33:40-03:00",
     "ocorrencias": 20,
-    "notificacoes": 3,
-    "primeira_notificacao": "2026-09-08T11:13:12-03:00",
+    "notificacoes": 2,
+    "primeira_notificacao": "2026-09-08T10:12:51-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-05T12:22:29-03:00",
@@ -1650,13 +1660,13 @@
         "acao": "Sem ação imediata. O sistema acompanha e promove para P2 se o aviso se repetir."
       },
       {
-        "em": "2026-09-08T11:13:12-03:00",
+        "em": "2026-09-08T10:12:51-03:00",
         "evento": "escalado de P3 para P2",
         "tier": "P2",
         "tipo": "Padrão preditivo",
         "titulo": "Compressor perdendo rendimento",
         "regra": "R2",
-        "detalhe": "3 avisos de pressão baixa em 24 h (último: 4,5 bar)",
+        "detalhe": "3 avisos de pressão baixa em 10 h de uso (último: 4,6 bar)",
         "acao": "Ligar para o consultório: pedir a drenagem do reservatório do compressor e checar vazamentos audíveis. Se os avisos continuarem, agendar visita preventiva com kit de reparo do compressor."
       },
       {
@@ -1670,6 +1680,11 @@
         "acao": "Orientar por telefone: desligar a cadeira, drenar o reservatório e religar. Se a pressão não voltar em 10 min, visita técnica prioritária com compressor reserva."
       },
       {
+        "em": "2026-09-08T13:45:04-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-09T15:33:40-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -1680,7 +1695,7 @@
       "device_id": "CAD-0029",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 37716,
+      "seq": 37722,
       "ts": "2026-09-08T12:30:52-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -1690,7 +1705,7 @@
     }
   },
   {
-    "id": "A-0034",
+    "id": "A-0033",
     "device_id": "PAN-0011",
     "clinic_id": "CLI-018",
     "familia": "TUBO",
@@ -1708,6 +1723,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T07:50:57-03:00",
@@ -1740,7 +1756,7 @@
     }
   },
   {
-    "id": "A-0035",
+    "id": "A-0034",
     "device_id": "CAD-0081",
     "clinic_id": "CLI-027",
     "familia": "MOTOR",
@@ -1756,8 +1772,9 @@
     "ultima_ocorrencia": "2026-09-10T12:06:40-03:00",
     "encerrado_em": "2026-09-11T10:14:29-03:00",
     "ocorrencias": 75,
-    "notificacoes": 5,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T08:34:31-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T08:34:31-03:00",
@@ -1768,6 +1785,11 @@
         "regra": "R6",
         "detalhe": "corrente média 2,54 A contra 2,23 A no normal desta cadeira (+14%)",
         "acao": "Agendar visita preventiva: inspeção e lubrificação do fuso de elevação; levar motor de reposição caso a corrente não normalize."
+      },
+      {
+        "em": "2026-09-08T18:37:14-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-09T08:31:31-03:00",
@@ -1790,7 +1812,7 @@
       "device_id": "CAD-0081",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 49478,
+      "seq": 49482,
       "ts": "2026-09-09T08:31:28-03:00",
       "code": "CHR_MOTOR_OVERCURRENT_TRIP",
       "lvl": "ERROR",
@@ -1800,7 +1822,7 @@
     }
   },
   {
-    "id": "A-0036",
+    "id": "A-0035",
     "device_id": "CAD-0028",
     "clinic_id": "CLI-008",
     "familia": "AR",
@@ -1816,8 +1838,9 @@
     "ultima_ocorrencia": "2026-09-08T17:23:28-03:00",
     "encerrado_em": "2026-09-09T14:31:01-03:00",
     "ocorrencias": 17,
-    "notificacoes": 3,
+    "notificacoes": 1,
     "primeira_notificacao": "2026-09-08T08:37:31-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T08:37:31-03:00",
@@ -1830,6 +1853,11 @@
         "acao": "Orientar por telefone: desligar a cadeira, drenar o reservatório e religar. Se a pressão não voltar em 10 min, visita técnica prioritária com compressor reserva."
       },
       {
+        "em": "2026-09-08T11:54:04-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-09T14:31:01-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -1840,7 +1868,7 @@
       "device_id": "CAD-0028",
       "model": "C-100",
       "fw": "3.2.0",
-      "seq": 38156,
+      "seq": 38162,
       "ts": "2026-09-08T08:37:27-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -1850,7 +1878,7 @@
     }
   },
   {
-    "id": "A-0037",
+    "id": "A-0036",
     "device_id": "CAD-0054",
     "clinic_id": "CLI-016",
     "familia": "AR",
@@ -1868,6 +1896,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T08:39:26-03:00",
@@ -1890,7 +1919,7 @@
       "device_id": "CAD-0054",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 80288,
+      "seq": 80292,
       "ts": "2026-09-08T08:39:25-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -1900,7 +1929,7 @@
     }
   },
   {
-    "id": "A-0038",
+    "id": "A-0037",
     "device_id": "CAD-0066",
     "clinic_id": "CLI-021",
     "familia": "AR",
@@ -1918,6 +1947,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T08:39:48-03:00",
@@ -1940,7 +1970,7 @@
       "device_id": "CAD-0066",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 75775,
+      "seq": 75781,
       "ts": "2026-09-08T08:39:46-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -1950,7 +1980,7 @@
     }
   },
   {
-    "id": "A-0039",
+    "id": "A-0038",
     "device_id": "CAD-0051",
     "clinic_id": "CLI-015",
     "familia": "AR",
@@ -1968,6 +1998,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T08:43:14-03:00",
@@ -2000,7 +2031,7 @@
     }
   },
   {
-    "id": "A-0040",
+    "id": "A-0039",
     "device_id": "CAD-0017",
     "clinic_id": "CLI-004",
     "familia": "AR",
@@ -2018,6 +2049,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T08:44:44-03:00",
@@ -2040,7 +2072,7 @@
       "device_id": "CAD-0017",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 84101,
+      "seq": 84107,
       "ts": "2026-09-08T08:44:41-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -2050,7 +2082,7 @@
     }
   },
   {
-    "id": "A-0041",
+    "id": "A-0040",
     "device_id": "PAN-0009",
     "clinic_id": "CLI-015",
     "familia": "GERADOR",
@@ -2068,6 +2100,7 @@
     "ocorrencias": 14,
     "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T09:08:55-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T09:08:55-03:00",
@@ -2078,6 +2111,11 @@
         "regra": "R1",
         "detalhe": "Falha no gerador de alta tensão",
         "acao": "Manter o equipamento desligado. Visita técnica prioritária para o gerador de alta tensão."
+      },
+      {
+        "em": "2026-09-08T22:18:43-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-09T16:04:32-03:00",
@@ -2098,7 +2136,7 @@
     }
   },
   {
-    "id": "A-0042",
+    "id": "A-0041",
     "device_id": "PAN-0003",
     "clinic_id": "CLI-003",
     "familia": "SENSOR",
@@ -2116,6 +2154,7 @@
     "ocorrencias": 1,
     "notificacoes": 1,
     "primeira_notificacao": "2026-09-08T09:45:42-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T09:45:42-03:00",
@@ -2126,6 +2165,11 @@
         "regra": "R5",
         "detalhe": "10 retransmissões do sensor em 4 h",
         "acao": "Orientar a trocar a porta de conexão e verificar o conector do sensor. Se persistir, enviar cabo de reposição."
+      },
+      {
+        "em": "2026-09-08T12:35:11-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-08T17:58:44-03:00",
@@ -2146,7 +2190,7 @@
     }
   },
   {
-    "id": "A-0043",
+    "id": "A-0042",
     "device_id": "PAN-0016",
     "clinic_id": "CLI-027",
     "familia": "TUBO",
@@ -2164,6 +2208,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T10:01:57-03:00",
@@ -2196,7 +2241,7 @@
     }
   },
   {
-    "id": "A-0044",
+    "id": "A-0043",
     "device_id": "CAD-0074",
     "clinic_id": "CLI-026",
     "familia": "MOTOR",
@@ -2212,8 +2257,9 @@
     "ultima_ocorrencia": "2026-09-11T11:40:49-03:00",
     "encerrado_em": "2026-09-14T10:32:11-03:00",
     "ocorrencias": 52,
-    "notificacoes": 5,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T10:02:39-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T10:02:39-03:00",
@@ -2224,6 +2270,11 @@
         "regra": "R6",
         "detalhe": "corrente média 3,04 A contra 2,75 A no normal desta cadeira (+11%)",
         "acao": "Agendar visita preventiva: inspeção e lubrificação do fuso de elevação; levar motor de reposição caso a corrente não normalize."
+      },
+      {
+        "em": "2026-09-08T21:35:04-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T08:25:36-03:00",
@@ -2246,7 +2297,7 @@
       "device_id": "CAD-0074",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 48007,
+      "seq": 48015,
       "ts": "2026-09-10T08:25:33-03:00",
       "code": "CHR_MOTOR_OVERCURRENT_TRIP",
       "lvl": "ERROR",
@@ -2256,7 +2307,7 @@
     }
   },
   {
-    "id": "A-0045",
+    "id": "A-0044",
     "device_id": "CAD-0071",
     "clinic_id": "CLI-024",
     "familia": "AR",
@@ -2272,8 +2323,9 @@
     "ultima_ocorrencia": "2026-09-08T18:39:56-03:00",
     "encerrado_em": "2026-09-09T15:50:01-03:00",
     "ocorrencias": 15,
-    "notificacoes": 2,
+    "notificacoes": 1,
     "primeira_notificacao": "2026-09-08T11:41:25-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T10:05:31-03:00",
@@ -2296,6 +2348,11 @@
         "acao": "Orientar por telefone: desligar a cadeira, drenar o reservatório e religar. Se a pressão não voltar em 10 min, visita técnica prioritária com compressor reserva."
       },
       {
+        "em": "2026-09-08T15:41:09-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-09T15:50:01-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -2306,7 +2363,7 @@
       "device_id": "CAD-0071",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 80997,
+      "seq": 80999,
       "ts": "2026-09-08T11:41:21-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -2316,7 +2373,7 @@
     }
   },
   {
-    "id": "A-0046",
+    "id": "A-0045",
     "device_id": "CAD-0003",
     "clinic_id": "CLI-001",
     "familia": "AR",
@@ -2334,6 +2391,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T11:10:18-03:00",
@@ -2356,7 +2414,7 @@
       "device_id": "CAD-0003",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 6764,
+      "seq": 6770,
       "ts": "2026-09-08T11:10:14-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -2366,7 +2424,7 @@
     }
   },
   {
-    "id": "A-0047",
+    "id": "A-0046",
     "device_id": "PAN-0019",
     "clinic_id": "CLI-030",
     "familia": "SENSOR",
@@ -2382,8 +2440,9 @@
     "ultima_ocorrencia": "2026-09-11T12:45:46-03:00",
     "encerrado_em": "2026-09-12T11:26:49-03:00",
     "ocorrencias": 109,
-    "notificacoes": 7,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T12:19:46-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T12:19:46-03:00",
@@ -2394,6 +2453,11 @@
         "regra": "R5",
         "detalhe": "10 retransmissões do sensor em 4 h",
         "acao": "Orientar a trocar a porta de conexão e verificar o conector do sensor. Se persistir, enviar cabo de reposição."
+      },
+      {
+        "em": "2026-09-08T23:40:08-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T09:40:00-03:00",
@@ -2424,7 +2488,7 @@
     }
   },
   {
-    "id": "A-0048",
+    "id": "A-0047",
     "device_id": "PAN-0017",
     "clinic_id": "CLI-028",
     "familia": "TUBO",
@@ -2440,8 +2504,9 @@
     "ultima_ocorrencia": "2026-09-14T09:20:08-03:00",
     "encerrado_em": null,
     "ocorrencias": 32,
-    "notificacoes": 5,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T17:59:27-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T12:23:29-03:00",
@@ -2460,8 +2525,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Arrefecimento do tubo perdendo eficiência",
         "regra": "R3",
-        "detalhe": "4 avisos de tubo quente em 24 h (último: 61,8 °C)",
+        "detalhe": "4 avisos de tubo quente em 10 h de uso (último: 61,8 °C)",
         "acao": "Confirmar se a ventilação traseira está desobstruída e se o intervalo entre exames é respeitado. Agendar inspeção do arrefecimento."
+      },
+      {
+        "em": "2026-09-08T22:42:52-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-11T09:11:05-03:00",
@@ -2489,7 +2559,7 @@
     }
   },
   {
-    "id": "A-0049",
+    "id": "A-0048",
     "device_id": "PAN-0013",
     "clinic_id": "CLI-024",
     "familia": "TUBO",
@@ -2507,6 +2577,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T12:56:03-03:00",
@@ -2539,7 +2610,7 @@
     }
   },
   {
-    "id": "A-0050",
+    "id": "A-0049",
     "device_id": "PAN-0004",
     "clinic_id": "CLI-004",
     "familia": "TUBO",
@@ -2557,6 +2628,7 @@
     "ocorrencias": 3,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-08T13:00:19-03:00",
@@ -2589,7 +2661,7 @@
     }
   },
   {
-    "id": "A-0051",
+    "id": "A-0050",
     "device_id": "CAD-0013",
     "clinic_id": "CLI-004",
     "familia": "PEDAL",
@@ -2605,8 +2677,9 @@
     "ultima_ocorrencia": "2026-09-10T18:24:46-03:00",
     "encerrado_em": "2026-09-14T08:16:26-03:00",
     "ocorrencias": 51,
-    "notificacoes": 4,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-08T16:20:52-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T16:20:52-03:00",
@@ -2617,6 +2690,11 @@
         "regra": "R4",
         "detalhe": "15 retransmissões do pedal em 2 h",
         "acao": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição."
+      },
+      {
+        "em": "2026-09-09T12:32:19-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T08:13:33-03:00",
@@ -2639,7 +2717,7 @@
       "device_id": "CAD-0013",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 77461,
+      "seq": 77467,
       "ts": "2026-09-10T08:13:32-03:00",
       "code": "CHR_PEDAL_COMM_LOST",
       "lvl": "ERROR",
@@ -2647,7 +2725,7 @@
     }
   },
   {
-    "id": "A-0052",
+    "id": "A-0051",
     "device_id": "PAN-0014",
     "clinic_id": "CLI-025",
     "familia": "TUBO",
@@ -2663,8 +2741,9 @@
     "ultima_ocorrencia": "2026-09-11T08:24:08-03:00",
     "encerrado_em": "2026-09-11T16:56:00-03:00",
     "ocorrencias": 24,
-    "notificacoes": 5,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T11:46:56-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T16:54:18-03:00",
@@ -2683,8 +2762,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Arrefecimento do tubo perdendo eficiência",
         "regra": "R3",
-        "detalhe": "4 avisos de tubo quente em 24 h (último: 63,5 °C)",
+        "detalhe": "4 avisos de tubo quente em 10 h de uso (último: 63,5 °C)",
         "acao": "Confirmar se a ventilação traseira está desobstruída e se o intervalo entre exames é respeitado. Agendar inspeção do arrefecimento."
+      },
+      {
+        "em": "2026-09-10T10:37:54-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T13:29:26-03:00",
@@ -2717,7 +2801,7 @@
     }
   },
   {
-    "id": "A-0053",
+    "id": "A-0052",
     "device_id": "CAD-0041",
     "clinic_id": "CLI-012",
     "familia": "AR",
@@ -2733,8 +2817,9 @@
     "ultima_ocorrencia": "2026-09-11T17:14:49-03:00",
     "encerrado_em": "2026-09-14T16:10:01-03:00",
     "ocorrencias": 31,
-    "notificacoes": 4,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T12:16:42-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T16:55:57-03:00",
@@ -2753,8 +2838,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Compressor perdendo rendimento",
         "regra": "R2",
-        "detalhe": "3 avisos de pressão baixa em 24 h (último: 5,1 bar)",
+        "detalhe": "3 avisos de pressão baixa em 10 h de uso (último: 5,1 bar)",
         "acao": "Ligar para o consultório: pedir a drenagem do reservatório do compressor e checar vazamentos audíveis. Se os avisos continuarem, agendar visita preventiva com kit de reparo do compressor."
+      },
+      {
+        "em": "2026-09-10T02:58:28-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-11T09:08:23-03:00",
@@ -2777,7 +2867,7 @@
       "device_id": "CAD-0041",
       "model": "C-100",
       "fw": "3.1.0",
-      "seq": 38486,
+      "seq": 38494,
       "ts": "2026-09-11T09:08:21-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -2787,55 +2877,7 @@
     }
   },
   {
-    "id": "A-0054",
-    "device_id": "CAD-0037",
-    "clinic_id": "CLI-011",
-    "familia": "PEDAL",
-    "prioridade": "P2",
-    "score": 212,
-    "tipo": "Padrão preditivo",
-    "titulo": "Comunicação do pedal instável",
-    "regra": "R4",
-    "detalhe": "15 retransmissões do pedal em 2 h",
-    "acao_sugerida": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição.",
-    "pacientes_dia": 12,
-    "aberto_em": "2026-09-08T17:12:26-03:00",
-    "ultima_ocorrencia": "2026-09-08T17:12:26-03:00",
-    "encerrado_em": "2026-09-09T16:39:04-03:00",
-    "ocorrencias": 1,
-    "notificacoes": 1,
-    "primeira_notificacao": "2026-09-08T17:12:26-03:00",
-    "historico": [
-      {
-        "em": "2026-09-08T17:12:26-03:00",
-        "evento": "aberto como P2",
-        "tier": "P2",
-        "tipo": "Padrão preditivo",
-        "titulo": "Comunicação do pedal instável",
-        "regra": "R4",
-        "detalhe": "15 retransmissões do pedal em 2 h",
-        "acao": "Orientar a verificar se o cabo do pedal está pisado, dobrado ou mal encaixado. Se persistir, enviar cabo de reposição."
-      },
-      {
-        "em": "2026-09-09T16:39:04-03:00",
-        "evento": "encerrado: 8 h de uso sem nova ocorrência",
-        "tier": null
-      }
-    ],
-    "evento_gatilho": {
-      "v": 1,
-      "device_id": "CAD-0037",
-      "model": "C-200",
-      "fw": "3.2.0",
-      "seq": 77391,
-      "ts": "2026-09-08T17:12:25-03:00",
-      "code": "CHR_PEDAL_COMM_RETRY",
-      "lvl": "WARN",
-      "received_at": "2026-09-08T17:12:26.384-03:00"
-    }
-  },
-  {
-    "id": "A-0055",
+    "id": "A-0053",
     "device_id": "PAN-0005",
     "clinic_id": "CLI-006",
     "familia": "TUBO",
@@ -2853,6 +2895,7 @@
     "ocorrencias": 20,
     "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T16:09:07-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-08T17:21:56-03:00",
@@ -2871,8 +2914,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Arrefecimento do tubo perdendo eficiência",
         "regra": "R3",
-        "detalhe": "4 avisos de tubo quente em 24 h (último: 63,6 °C)",
+        "detalhe": "4 avisos de tubo quente em 10 h de uso (último: 63,6 °C)",
         "acao": "Confirmar se a ventilação traseira está desobstruída e se o intervalo entre exames é respeitado. Agendar inspeção do arrefecimento."
+      },
+      {
+        "em": "2026-09-09T19:10:36-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T16:11:08-03:00",
@@ -2905,7 +2953,7 @@
     }
   },
   {
-    "id": "A-0056",
+    "id": "A-0054",
     "device_id": "CAD-0082",
     "clinic_id": "CLI-027",
     "familia": "AR",
@@ -2923,6 +2971,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-09T08:12:58-03:00",
@@ -2945,7 +2994,7 @@
       "device_id": "CAD-0082",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 20094,
+      "seq": 20102,
       "ts": "2026-09-09T08:12:57-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -2955,7 +3004,7 @@
     }
   },
   {
-    "id": "A-0057",
+    "id": "A-0055",
     "device_id": "CAD-0017",
     "clinic_id": "CLI-004",
     "familia": "AR",
@@ -2973,6 +3022,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-09T08:24:30-03:00",
@@ -2995,7 +3045,7 @@
       "device_id": "CAD-0017",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 84141,
+      "seq": 84149,
       "ts": "2026-09-09T08:24:29-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3005,7 +3055,7 @@
     }
   },
   {
-    "id": "A-0058",
+    "id": "A-0056",
     "device_id": "CAD-0053",
     "clinic_id": "CLI-015",
     "familia": "AR",
@@ -3023,6 +3073,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-09T08:38:10-03:00",
@@ -3045,7 +3096,7 @@
       "device_id": "CAD-0053",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 40298,
+      "seq": 40304,
       "ts": "2026-09-09T08:38:09-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3055,7 +3106,7 @@
     }
   },
   {
-    "id": "A-0059",
+    "id": "A-0057",
     "device_id": "CAD-0072",
     "clinic_id": "CLI-024",
     "familia": "MOTOR",
@@ -3071,8 +3122,9 @@
     "ultima_ocorrencia": "2026-09-14T10:58:51-03:00",
     "encerrado_em": null,
     "ocorrencias": 106,
-    "notificacoes": 5,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T09:03:31-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-09T09:03:31-03:00",
@@ -3083,6 +3135,11 @@
         "regra": "R6",
         "detalhe": "corrente média 2,61 A contra 2,34 A no normal desta cadeira (+12%)",
         "acao": "Agendar visita preventiva: inspeção e lubrificação do fuso de elevação; levar motor de reposição caso a corrente não normalize."
+      },
+      {
+        "em": "2026-09-09T15:58:11-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-12T09:00:22-03:00",
@@ -3100,7 +3157,7 @@
       "device_id": "CAD-0072",
       "model": "C-200",
       "fw": "3.1.2",
-      "seq": 7286,
+      "seq": 7296,
       "ts": "2026-09-12T09:00:18-03:00",
       "code": "CHR_MOTOR_OVERCURRENT_TRIP",
       "lvl": "ERROR",
@@ -3110,7 +3167,7 @@
     }
   },
   {
-    "id": "A-0060",
+    "id": "A-0058",
     "device_id": "PAN-0003",
     "clinic_id": "CLI-003",
     "familia": "SENSOR",
@@ -3126,8 +3183,9 @@
     "ultima_ocorrencia": "2026-09-10T16:47:41-03:00",
     "encerrado_em": "2026-09-14T11:09:09-03:00",
     "ocorrencias": 50,
-    "notificacoes": 3,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T09:07:27-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-09T09:07:27-03:00",
@@ -3138,6 +3196,11 @@
         "regra": "R5",
         "detalhe": "10 retransmissões do sensor em 4 h",
         "acao": "Orientar a trocar a porta de conexão e verificar o conector do sensor. Se persistir, enviar cabo de reposição."
+      },
+      {
+        "em": "2026-09-10T00:55:40-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-10T09:08:28-03:00",
@@ -3168,7 +3231,7 @@
     }
   },
   {
-    "id": "A-0061",
+    "id": "A-0059",
     "device_id": "CAD-0003",
     "clinic_id": "CLI-001",
     "familia": "AR",
@@ -3184,8 +3247,9 @@
     "ultima_ocorrencia": "2026-09-12T12:23:59-03:00",
     "encerrado_em": "2026-09-14T16:06:19-03:00",
     "ocorrencias": 24,
-    "notificacoes": 4,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T12:28:45-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-09T10:07:22-03:00",
@@ -3204,8 +3268,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Compressor perdendo rendimento",
         "regra": "R2",
-        "detalhe": "3 avisos de pressão baixa em 24 h (último: 5,2 bar)",
+        "detalhe": "3 avisos de pressão baixa em 10 h de uso (último: 5,2 bar)",
         "acao": "Ligar para o consultório: pedir a drenagem do reservatório do compressor e checar vazamentos audíveis. Se os avisos continuarem, agendar visita preventiva com kit de reparo do compressor."
+      },
+      {
+        "em": "2026-09-09T23:12:22-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-12T09:00:51-03:00",
@@ -3228,7 +3297,7 @@
       "device_id": "CAD-0003",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 6906,
+      "seq": 6916,
       "ts": "2026-09-12T09:00:50-03:00",
       "code": "CHR_AIR_PRESSURE_CRITICAL",
       "lvl": "ERROR",
@@ -3238,7 +3307,7 @@
     }
   },
   {
-    "id": "A-0062",
+    "id": "A-0060",
     "device_id": "PAN-0011",
     "clinic_id": "CLI-018",
     "familia": "TUBO",
@@ -3256,6 +3325,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-09T10:15:09-03:00",
@@ -3288,7 +3358,7 @@
     }
   },
   {
-    "id": "A-0063",
+    "id": "A-0061",
     "device_id": "CAD-0005",
     "clinic_id": "CLI-002",
     "familia": "PEDAL",
@@ -3304,8 +3374,9 @@
     "ultima_ocorrencia": "2026-09-10T17:18:07-03:00",
     "encerrado_em": "2026-09-11T16:09:25-03:00",
     "ocorrencias": 42,
-    "notificacoes": 5,
+    "notificacoes": 4,
     "primeira_notificacao": "2026-09-09T15:11:49-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-09T15:11:49-03:00",
@@ -3328,6 +3399,11 @@
         "acao": "Orientar a reconectar o cabo do pedal. Se não resolver, enviar técnico com pedal reserva."
       },
       {
+        "em": "2026-09-10T14:40:28-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-11T16:09:25-03:00",
         "evento": "encerrado: 8 h de uso sem nova ocorrência",
         "tier": null
@@ -3346,7 +3422,7 @@
     }
   },
   {
-    "id": "A-0064",
+    "id": "A-0062",
     "device_id": "CAD-0066",
     "clinic_id": "CLI-021",
     "familia": "MOTOR",
@@ -3362,8 +3438,9 @@
     "ultima_ocorrencia": "2026-09-14T23:27:58-03:00",
     "encerrado_em": null,
     "ocorrencias": 50,
-    "notificacoes": 6,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-09T18:07:50-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-09T18:07:50-03:00",
@@ -3374,6 +3451,11 @@
         "regra": "R6",
         "detalhe": "corrente média 3,59 A contra 3,33 A no normal desta cadeira (+8%)",
         "acao": "Agendar visita preventiva: inspeção e lubrificação do fuso de elevação; levar motor de reposição caso a corrente não normalize."
+      },
+      {
+        "em": "2026-09-10T15:01:01-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-11T11:52:59-03:00",
@@ -3391,7 +3473,7 @@
       "device_id": "CAD-0066",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 75876,
+      "seq": 75884,
       "ts": "2026-09-11T11:52:56-03:00",
       "code": "CHR_MOTOR_OVERCURRENT_TRIP",
       "lvl": "ERROR",
@@ -3401,7 +3483,7 @@
     }
   },
   {
-    "id": "A-0065",
+    "id": "A-0063",
     "device_id": "CAD-0082",
     "clinic_id": "CLI-027",
     "familia": "AR",
@@ -3419,6 +3501,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-10T08:22:14-03:00",
@@ -3441,7 +3524,7 @@
       "device_id": "CAD-0082",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 20158,
+      "seq": 20168,
       "ts": "2026-09-10T08:22:13-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3451,7 +3534,7 @@
     }
   },
   {
-    "id": "A-0066",
+    "id": "A-0064",
     "device_id": "PAN-0013",
     "clinic_id": "CLI-024",
     "familia": "TUBO",
@@ -3469,6 +3552,7 @@
     "ocorrencias": 15,
     "notificacoes": 2,
     "primeira_notificacao": "2026-09-11T10:02:48-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-10T08:23:17-03:00",
@@ -3487,8 +3571,13 @@
         "tipo": "Padrão preditivo",
         "titulo": "Arrefecimento do tubo perdendo eficiência",
         "regra": "R3",
-        "detalhe": "4 avisos de tubo quente em 24 h (último: 65,9 °C)",
+        "detalhe": "4 avisos de tubo quente em 10 h de uso (último: 65,9 °C)",
         "acao": "Confirmar se a ventilação traseira está desobstruída e se o intervalo entre exames é respeitado. Agendar inspeção do arrefecimento."
+      },
+      {
+        "em": "2026-09-11T15:13:13-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
       },
       {
         "em": "2026-09-11T16:31:46-03:00",
@@ -3521,7 +3610,7 @@
     }
   },
   {
-    "id": "A-0067",
+    "id": "A-0065",
     "device_id": "CAD-0059",
     "clinic_id": "CLI-018",
     "familia": "AR",
@@ -3539,6 +3628,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-10T08:42:30-03:00",
@@ -3561,7 +3651,7 @@
       "device_id": "CAD-0059",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 58873,
+      "seq": 58879,
       "ts": "2026-09-10T08:42:28-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3571,7 +3661,7 @@
     }
   },
   {
-    "id": "A-0068",
+    "id": "A-0066",
     "device_id": "CAD-0005",
     "clinic_id": "CLI-002",
     "familia": "AR",
@@ -3589,6 +3679,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-10T08:44:43-03:00",
@@ -3611,7 +3702,7 @@
       "device_id": "CAD-0005",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 45158,
+      "seq": 45160,
       "ts": "2026-09-10T08:44:42-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3621,7 +3712,7 @@
     }
   },
   {
-    "id": "A-0069",
+    "id": "A-0067",
     "device_id": "CAD-0020",
     "clinic_id": "CLI-005",
     "familia": "MOTOR",
@@ -3635,10 +3726,11 @@
     "pacientes_dia": 8,
     "aberto_em": "2026-09-10T09:48:26-03:00",
     "ultima_ocorrencia": "2026-09-14T10:21:36-03:00",
-    "encerrado_em": null,
+    "encerrado_em": "2026-09-14T18:32:44-03:00",
     "ocorrencias": 50,
-    "notificacoes": 6,
+    "notificacoes": 2,
     "primeira_notificacao": "2026-09-10T09:48:26-03:00",
+    "veredito_tecnico": "confirmado",
     "historico": [
       {
         "em": "2026-09-10T09:48:26-03:00",
@@ -3651,6 +3743,11 @@
         "acao": "Agendar visita preventiva: inspeção e lubrificação do fuso de elevação; levar motor de reposição caso a corrente não normalize."
       },
       {
+        "em": "2026-09-10T18:10:43-03:00",
+        "evento": "técnico confirmou: problema real; lembretes suspensos",
+        "tier": null
+      },
+      {
         "em": "2026-09-11T10:27:50-03:00",
         "evento": "escalado de P2 para P1",
         "tier": "P1",
@@ -3659,6 +3756,11 @@
         "regra": "R1",
         "detalhe": "Proteção de sobrecorrente do motor desarmou (4,5 A)",
         "acao": "Orientar a não forçar a cadeira. Visita técnica prioritária levando motor de elevação de reposição."
+      },
+      {
+        "em": "2026-09-14T18:32:44-03:00",
+        "evento": "encerrado: 8 h de uso sem nova ocorrência",
+        "tier": null
       }
     ],
     "evento_gatilho": {
@@ -3666,7 +3768,7 @@
       "device_id": "CAD-0020",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 65906,
+      "seq": 65916,
       "ts": "2026-09-11T10:27:47-03:00",
       "code": "CHR_MOTOR_OVERCURRENT_TRIP",
       "lvl": "ERROR",
@@ -3676,7 +3778,7 @@
     }
   },
   {
-    "id": "A-0070",
+    "id": "A-0068",
     "device_id": "PAN-0018",
     "clinic_id": "CLI-029",
     "familia": "TUBO",
@@ -3694,6 +3796,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-10T11:40:52-03:00",
@@ -3726,7 +3829,7 @@
     }
   },
   {
-    "id": "A-0071",
+    "id": "A-0069",
     "device_id": "PAN-0016",
     "clinic_id": "CLI-027",
     "familia": "TUBO",
@@ -3744,6 +3847,7 @@
     "ocorrencias": 3,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-10T18:12:28-03:00",
@@ -3776,7 +3880,7 @@
     }
   },
   {
-    "id": "A-0072",
+    "id": "A-0070",
     "device_id": "CAD-0022",
     "clinic_id": "CLI-005",
     "familia": "AR",
@@ -3794,6 +3898,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-11T08:12:16-03:00",
@@ -3816,7 +3921,7 @@
       "device_id": "CAD-0022",
       "model": "C-200",
       "fw": "3.1.0",
-      "seq": 58907,
+      "seq": 58911,
       "ts": "2026-09-11T08:12:13-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3826,7 +3931,7 @@
     }
   },
   {
-    "id": "A-0073",
+    "id": "A-0071",
     "device_id": "CAD-0021",
     "clinic_id": "CLI-005",
     "familia": "AR",
@@ -3844,6 +3949,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-11T08:13:33-03:00",
@@ -3866,7 +3972,7 @@
       "device_id": "CAD-0021",
       "model": "C-100",
       "fw": "3.1.0",
-      "seq": 80182,
+      "seq": 80192,
       "ts": "2026-09-11T08:13:30-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3876,7 +3982,7 @@
     }
   },
   {
-    "id": "A-0074",
+    "id": "A-0072",
     "device_id": "CAD-0020",
     "clinic_id": "CLI-005",
     "familia": "AR",
@@ -3894,6 +4000,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-11T08:27:50-03:00",
@@ -3916,7 +4023,7 @@
       "device_id": "CAD-0020",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 65899,
+      "seq": 65909,
       "ts": "2026-09-11T08:27:49-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -3926,7 +4033,7 @@
     }
   },
   {
-    "id": "A-0075",
+    "id": "A-0073",
     "device_id": "PAN-0008",
     "clinic_id": "CLI-012",
     "familia": "TUBO",
@@ -3944,6 +4051,7 @@
     "ocorrencias": 3,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-11T14:21:30-03:00",
@@ -3971,7 +4079,7 @@
     }
   },
   {
-    "id": "A-0076",
+    "id": "A-0074",
     "device_id": "PAN-0002",
     "clinic_id": "CLI-002",
     "familia": "TUBO",
@@ -3989,6 +4097,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-11T15:03:05-03:00",
@@ -4021,7 +4130,7 @@
     }
   },
   {
-    "id": "A-0077",
+    "id": "A-0075",
     "device_id": "PAN-0009",
     "clinic_id": "CLI-015",
     "familia": "TUBO",
@@ -4039,6 +4148,7 @@
     "ocorrencias": 2,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-12T09:17:56-03:00",
@@ -4071,7 +4181,7 @@
     }
   },
   {
-    "id": "A-0078",
+    "id": "A-0076",
     "device_id": "CAD-0064",
     "clinic_id": "CLI-020",
     "familia": "AR",
@@ -4089,6 +4199,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:09:07-03:00",
@@ -4111,7 +4222,7 @@
       "device_id": "CAD-0064",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 79521,
+      "seq": 79525,
       "ts": "2026-09-14T08:09:04-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -4121,7 +4232,7 @@
     }
   },
   {
-    "id": "A-0079",
+    "id": "A-0077",
     "device_id": "CAD-0019",
     "clinic_id": "CLI-005",
     "familia": "AR",
@@ -4139,6 +4250,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:17:35-03:00",
@@ -4161,7 +4273,7 @@
       "device_id": "CAD-0019",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 16141,
+      "seq": 16151,
       "ts": "2026-09-14T08:17:35-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -4171,7 +4283,7 @@
     }
   },
   {
-    "id": "A-0080",
+    "id": "A-0078",
     "device_id": "CAD-0042",
     "clinic_id": "CLI-012",
     "familia": "AR",
@@ -4189,6 +4301,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:23:50-03:00",
@@ -4211,7 +4324,7 @@
       "device_id": "CAD-0042",
       "model": "C-100",
       "fw": "3.1.0",
-      "seq": 49005,
+      "seq": 49011,
       "ts": "2026-09-14T08:23:49-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -4221,7 +4334,7 @@
     }
   },
   {
-    "id": "A-0081",
+    "id": "A-0079",
     "device_id": "CAD-0079",
     "clinic_id": "CLI-027",
     "familia": "AR",
@@ -4239,6 +4352,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:25:00-03:00",
@@ -4261,7 +4375,7 @@
       "device_id": "CAD-0079",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 55546,
+      "seq": 55556,
       "ts": "2026-09-14T08:24:57-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -4271,7 +4385,7 @@
     }
   },
   {
-    "id": "A-0082",
+    "id": "A-0080",
     "device_id": "CAD-0088",
     "clinic_id": "CLI-030",
     "familia": "AR",
@@ -4289,6 +4403,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:50:32-03:00",
@@ -4311,7 +4426,7 @@
       "device_id": "CAD-0088",
       "model": "C-200",
       "fw": "3.2.0",
-      "seq": 81835,
+      "seq": 81843,
       "ts": "2026-09-14T08:50:28-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
@@ -4321,7 +4436,7 @@
     }
   },
   {
-    "id": "A-0083",
+    "id": "A-0081",
     "device_id": "CAD-0026",
     "clinic_id": "CLI-007",
     "familia": "AR",
@@ -4339,6 +4454,7 @@
     "ocorrencias": 1,
     "notificacoes": 0,
     "primeira_notificacao": null,
+    "veredito_tecnico": null,
     "historico": [
       {
         "em": "2026-09-14T08:55:07-03:00",
@@ -4361,7 +4477,7 @@
       "device_id": "CAD-0026",
       "model": "C-100",
       "fw": "3.1.2",
-      "seq": 51735,
+      "seq": 51747,
       "ts": "2026-09-14T08:55:06-03:00",
       "code": "CHR_AIR_PRESSURE_LOW",
       "lvl": "WARN",
